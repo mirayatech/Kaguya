@@ -1,0 +1,35 @@
+.active {
+  background-color: black;
+}
+
+.not-active {
+  background-color: transparent;
+}
+
+.link {
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.link.right {
+  margin: 0 20px;
+}
+
+.search__link {
+  color: white;
+}
+
+.search__link .search__svg {
+  font-size: 1.8rem;
+}
+
+.login__link {
+  color: white;
+  font-weight: 600;
+  margin-left: 20px;
+  padding: 6px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  background-color: #f0324c;
+}

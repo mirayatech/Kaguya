@@ -1,27 +1,49 @@
 import { Link } from 'react-router-dom'
 import Logo from '../../assets/logo.png'
 import { HiOutlineSearch } from 'react-icons/hi'
+import { useState } from 'react'
+
+import './style.css'
+import { Nav, NavContainer, Wrapper, Image } from './style'
 
 export function Navbar() {
+  const [navbar, setNavbar] = useState(false)
+
+  const changeBackground = () => {
+    if (window.scrollY >= 80) {
+      setNavbar(true)
+    } else {
+      setNavbar(false)
+    }
+  }
+
+  window.addEventListener('scroll', changeBackground)
+
   return (
-    <div>
-      <div>
-        <div>
+    <Nav className={navbar ? 'active' : 'not-active'}>
+      <NavContainer>
+        <Wrapper>
           <Link to="/" aria-label="home">
-            <img src={Logo} alt="" />
+            <Image src={Logo} alt="" />
           </Link>
 
-          <Link to="/animes">Anime</Link>
-          <Link to="/mangas">Manga</Link>
-        </div>
-
-        <div>
-          <Link to="/search">
-            <HiOutlineSearch />
+          <Link className="link right" to="/animes">
+            Anime
           </Link>
-          <Link to="/login">Login</Link>
-        </div>
-      </div>
-    </div>
+          <Link className="link left" to="/mangas">
+            Manga
+          </Link>
+        </Wrapper>
+
+        <Wrapper>
+          <Link to="/search" className="search__link">
+            <HiOutlineSearch className="search__svg" />
+          </Link>
+          <Link to="/login" className="login__link">
+            Login
+          </Link>
+        </Wrapper>
+      </NavContainer>
+    </Nav>
   )
 }
