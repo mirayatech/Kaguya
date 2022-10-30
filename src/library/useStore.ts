@@ -6,7 +6,6 @@ type StoreType = {
   currentUser: undefined | null | User
   setCurrentUser: (user: User | null) => void
 }
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useUserStore = create<StoreType>((set: any) => ({
   currentUser: undefined,
