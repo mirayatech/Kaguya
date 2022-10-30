@@ -5,7 +5,8 @@ import { LoadingSpinner, Navbar } from './Components'
 import { firebaseAuth, useUserStore } from './library'
 
 export function App() {
-  const Login = lazy(() => import('./pages/Login/Login'))
+  const Login = lazy(() => import('./pages/Login'))
+  const Register = lazy(() => import('./pages/Register'))
 
   // const currentUser = useUserStore((state) => state.currentUser)
   const setCurrentUser = useUserStore((state) => state.setCurrentUser)
@@ -29,6 +30,14 @@ export function App() {
           element={
             <Suspense fallback={<LoadingSpinner />}>
               <Login />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <Suspense fallback={<LoadingSpinner />}>
+              <Register />
             </Suspense>
           }
         />
