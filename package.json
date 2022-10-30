@@ -11,27 +11,28 @@
     "lint-fix": "eslint --ext .tsx,.jsx,.js,.ts --ignore-path .gitignore --fix src"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.11",
     "firebase": "^9.13.0",
     "prettier": "^2.7.1",
+    "react": "^18.2.0",
     "react-click-away-listener": "^2.2.2",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-router-dom": "^6.4.2",
     "zustand": "^4.1.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.27.1",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
     "@vitejs/plugin-react": "^2.2.0",
-    "eslint": "^8.20.0",
     "autoprefixer": "^10.4.12",
+    "eslint": "^8.20.0",
     "eslint-plugin-import": "^2.26.0",
-    "typescript": "^4.6.4",
     "postcss": "^8.4.18",
+    "typescript": "^4.6.4",
     "vite": "^3.2.0"
   }
 }
