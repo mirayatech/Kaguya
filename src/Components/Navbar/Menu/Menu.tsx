@@ -3,12 +3,13 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../../context'
 import { firebaseDb, UserType } from '../../../library'
-import { Avatar, Button, Wrapper, LogOut } from './style'
-import { Menu as Men } from '@mui/material'
+import { Avatar, Button, Wrapper, LogOut, Skeleton } from './style'
+import { Menu as HamburgerMenu } from '@mui/material'
 
 import './style.css'
 
 export function Menu() {
+  const [isLoading, setIsLoading] = useState(true)
   const { user } = useAuthContext()
   const [isUser, setIsUser] = useState<UserType | null>(null)
 
@@ -33,6 +34,7 @@ export function Menu() {
         if (docData) {
           setIsUser(docData)
         }
+        setIsLoading(false)
       }),
 
     [user?.uid]
@@ -40,42 +42,48 @@ export function Menu() {
 
   return (
     <>
-      {isUser && (
-        <Wrapper>
-          <Button
-            id="basic-button"
-            aria-controls={isOpen ? 'basic-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={isOpen ? 'true' : undefined}
-            onClick={handleClick}
-          >
-            <Avatar src={isUser.avatarUrl} alt="" />
-          </Button>
+      {isLoading ? (
+        <Skeleton />
+      ) : (
+        <>
+          {isUser && (
+            <Wrapper>
+              <Button
+                id="basic-button"
+                aria-controls={isOpen ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={isOpen ? 'true' : undefined}
+                onClick={handleClick}
+              >
+                <Avatar src={isUser.avatarUrl} alt="" />
+              </Button>
 
-          <Men
-            id="basic-menu"
-            anchorEl={anchorEl}
-            open={isOpen}
-            onClose={handleClose}
-            MenuListProps={{
-              'aria-labelledby': 'basic-button',
-            }}
-          >
-            <Link className="auth-link top" to="/animes">
-              Anime
-            </Link>
-            <Link className="auth-link" to="/mangas">
-              Manga
-            </Link>{' '}
-            <Link className="auth-link" to="/favorites">
-              Favorite
-            </Link>{' '}
-            <Link className="auth-link" to="/bookmarks">
-              Bookmark
-            </Link>{' '}
-            <LogOut>Log out</LogOut>
-          </Men>
-        </Wrapper>
+              <HamburgerMenu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={isOpen}
+                onClose={handleClose}
+                MenuListProps={{
+                  'aria-labelledby': 'basic-button',
+                }}
+              >
+                <Link className="auth-link top" to="/animes">
+                  Anime
+                </Link>
+                <Link className="auth-link" to="/mangas">
+                  Manga
+                </Link>{' '}
+                <Link className="auth-link" to="/favorites">
+                  Favorite
+                </Link>{' '}
+                <Link className="auth-link" to="/bookmarks">
+                  Bookmark
+                </Link>{' '}
+                <LogOut>Log out</LogOut>
+              </HamburgerMenu>
+            </Wrapper>
+          )}
+        </>
       )}
     </>
   )
