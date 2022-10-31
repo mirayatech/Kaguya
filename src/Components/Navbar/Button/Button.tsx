@@ -12,8 +12,8 @@ export function Button() {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <Wrapper>
-      <Link to="/login" className="login__link">
-        Login
+      <Link to="/signin" className="signin__link">
+        Sign in
       </Link>
 
       <HamburgerMenu onClick={() => setIsOpen(!isOpen)}>
@@ -52,8 +52,8 @@ export function Button() {
             <Link to="/bookmarks" onClick={() => setIsOpen(false)}>
               Bookmark
             </Link>
-            <Link to="/login" onClick={() => setIsOpen(false)}>
-              Login
+            <Link to="/signin" onClick={() => setIsOpen(false)}>
+              Sign in
             </Link>
           </motion.div>
         </ClickAwayListener>

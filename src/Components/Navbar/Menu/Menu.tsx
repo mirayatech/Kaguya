@@ -1,12 +1,13 @@
 import { doc, DocumentReference, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../../../context'
-import { firebaseAuth, firebaseDb, UserType } from '../../../library'
+import { firebaseAuth, firebaseDb, UserType, useStore } from '../../../library'
 import { Avatar, Button, Wrapper, LogOut, Skeleton } from './style'
 import { Menu as HamburgerMenu } from '@mui/material'
 
 import './style.css'
+import toast from 'react-hot-toast'
 import { signOut } from 'firebase/auth'
 
 export function Menu() {
@@ -14,6 +15,10 @@ export function Menu() {
   const [isUser, setIsUser] = useState<UserType | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const { user } = useAuthContext()
+
+  const { setStatus } = useStore()
+
+  const navigate = useNavigate()
 
   const isOpen = Boolean(anchorEl)
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -28,6 +33,21 @@ export function Menu() {
     firebaseDb,
     `users/${user?.uid}`
   ) as DocumentReference<UserType>
+
+  const handleLogOut = () => {
+    setStatus('loading')
+    signOut(firebaseAuth)
+    navigate('/')
+    toast('You have successfully signed out.', {
+      icon: '🤟',
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    })
+    setStatus('success')
+  }
 
   useEffect(
     () =>
@@ -81,7 +101,7 @@ export function Menu() {
                 <Link className="auth-link" to="/bookmarks">
                   Bookmark
                 </Link>{' '}
-                <LogOut onClick={() => signOut(firebaseAuth)}>Log out</LogOut>
+                <LogOut onClick={handleLogOut}>Sign out</LogOut>
               </HamburgerMenu>
             </Wrapper>
           )}
