@@ -5,6 +5,7 @@ import { theme } from '../../styles/theme'
 export const Container = styled.div`
   height: 100vh;
   display: flex;
+  flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -93,4 +94,12 @@ export const Button = styled.button`
   :hover {
     background-color: ${theme.Secondary};
   }
+`
+
+export const Alert = styled.div`
+  color: white;
+  background-color: #d6413d;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
 `
