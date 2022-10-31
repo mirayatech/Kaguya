@@ -1,3 +1,10 @@
+import { HeadlessSwiper, Homebanner } from '../../Components'
+
 export default function Anime() {
-  return <div>Anime</div>
+  return (
+    <div>
+      <Homebanner />
+      <HeadlessSwiper />
+    </div>
+  )
 }
