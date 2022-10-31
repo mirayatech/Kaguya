@@ -102,3 +102,42 @@ export const Flex = styled.div`
     width: 49%;
   }
 `
+
+export const AddImage = styled.div`
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 30px;
+  width: 30px;
+  height: 30px;
+  margin: auto;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  background-color: ${theme.MediumGrey};
+  justify-content: center;
+
+  label {
+    cursor: pointer;
+    color: ${theme.Grey};
+    font-size: 30px;
+    display: flex;
+  }
+`
+
+export const ImageResult = styled.button`
+  margin: auto;
+  border: none;
+  display: flex;
+  border: none;
+  margin-bottom: 5px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+
+  img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+`
