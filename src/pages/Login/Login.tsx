@@ -1,6 +1,17 @@
 import { useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import {
+  Container,
+  Form,
+  Title,
+  Label,
+  Input,
+  Wrapper,
+  Toggle,
+  Info,
+  Button,
+} from './style'
 
 export default function Login() {
   const [isPasswordShown, setIsPasswordShown] = useState(false)
@@ -11,31 +22,32 @@ export default function Login() {
   }
 
   return (
-    <form>
-      <h1>Login</h1>
-      <div>
-        <label htmlFor="Email">Email</label>
-        <input type="text" name="Email" id="Email" />
-      </div>
-      <div>
-        <label htmlFor="Password">Password</label>
+    <Container>
+      <Form>
+        <Title>Login</Title>
         <div>
-          <input
+          <Label htmlFor="Email">Email</Label>
+          <Input type="text" name="Email" id="Email" placeholder="Email" />
+        </div>
+        <Wrapper>
+          <Label htmlFor="Password">Password</Label>
+          <Input
             type={isPasswordShown ? 'text' : 'password'}
+            placeholder="Password"
             name="Pasword"
             id="Password"
           />
-          <button aria-label="toogle password" onClick={showPasssword}>
+          <Toggle aria-label="toogle password" onClick={showPasssword}>
             {isPasswordShown ? <FaEyeSlash /> : <FaEye />}
-          </button>
-        </div>
-      </div>
+          </Toggle>
+        </Wrapper>
 
-      <button type="submit">Login</button>
+        <Button type="submit">Login</Button>
 
-      <p>
-        Do not have an account yet? <Link to="/register">Sign up.</Link>
-      </p>
-    </form>
+        <Info>
+          Do not have an account yet? <Link to="/register">Sign up.</Link>
+        </Info>
+      </Form>
+    </Container>
   )
 }
