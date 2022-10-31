@@ -2,22 +2,24 @@ import { doc, DocumentReference, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../../context'
-import { firebaseDb, UserType } from '../../../library'
+import { firebaseAuth, firebaseDb, UserType } from '../../../library'
 import { Avatar, Button, Wrapper, LogOut, Skeleton } from './style'
 import { Menu as HamburgerMenu } from '@mui/material'
 
 import './style.css'
+import { signOut } from 'firebase/auth'
 
 export function Menu() {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+  const [isUser, setIsUser] = useState<UserType | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const { user } = useAuthContext()
-  const [isUser, setIsUser] = useState<UserType | null>(null)
 
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const isOpen = Boolean(anchorEl)
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)
   }
+
   const handleClose = () => {
     setAnchorEl(null)
   }
@@ -79,7 +81,7 @@ export function Menu() {
                 <Link className="auth-link" to="/bookmarks">
                   Bookmark
                 </Link>{' '}
-                <LogOut>Log out</LogOut>
+                <LogOut onClick={() => signOut(firebaseAuth)}>Log out</LogOut>
               </HamburgerMenu>
             </Wrapper>
           )}
