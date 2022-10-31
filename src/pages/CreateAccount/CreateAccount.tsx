@@ -53,7 +53,7 @@ export default function CreateProfile() {
     setSelectedFile(null)
     setStatus('success')
     navigate(`/`)
-    toast('Successfully created your account.', {
+    toast('Your account has been successfully created', {
       icon: '🎉',
       style: {
         borderRadius: '10px',

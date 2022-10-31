@@ -155,7 +155,7 @@ export default function Signp() {
         </Button>
         <Info>
           Already have an account?
-          <Link to="/signin">Sign in.</Link>
+          <Link to="/login">Login</Link>
         </Info>
       </Form>
 
