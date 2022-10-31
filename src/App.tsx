@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { LoadingSpinner, Navbar } from './Components'
+import { SuspenseSpinner, Navbar } from './Components'
 import { AuthContextProvider } from './context'
 
 export function App() {
@@ -16,7 +16,7 @@ export function App() {
         <Route
           path="/"
           element={
-            <Suspense fallback={<LoadingSpinner />}>
+            <Suspense fallback={<SuspenseSpinner />}>
               <Anime />
             </Suspense>
           }
@@ -24,7 +24,7 @@ export function App() {
         <Route
           path="/login"
           element={
-            <Suspense fallback={<LoadingSpinner />}>
+            <Suspense fallback={<SuspenseSpinner />}>
               <Login />
             </Suspense>
           }
@@ -33,7 +33,7 @@ export function App() {
         <Route
           path="/create/account"
           element={
-            <Suspense fallback={<LoadingSpinner />}>
+            <Suspense fallback={<SuspenseSpinner />}>
               <CreateAccount />
             </Suspense>
           }
@@ -41,7 +41,7 @@ export function App() {
         <Route
           path="/register"
           element={
-            <Suspense fallback={<LoadingSpinner />}>
+            <Suspense fallback={<SuspenseSpinner />}>
               <Register />
             </Suspense>
           }

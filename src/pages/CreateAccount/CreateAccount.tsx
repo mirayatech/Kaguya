@@ -1,25 +1,59 @@
-import { Navigate } from 'react-router-dom'
-import { FaEye, FaEyeSlash } from 'react-icons/fa'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/react-in-jsx-scope */
 import { ChangeEvent, useRef, useState } from 'react'
+
+import { updateDoc, doc } from 'firebase/firestore'
+import { getDownloadURL, ref, uploadString } from 'firebase/storage'
+
 import { useNavigate } from 'react-router-dom'
+import { IoCameraOutline } from 'react-icons/io5'
+
+import { firebaseDb, firebaseStorage, useStore } from '../../library'
+import { useAuthContext } from '../../context'
 import {
+  AddImage,
   Button,
   Container,
   Form,
+  ImageResult,
   Input,
   Label,
   Title,
-  AddImage,
-  ImageResult,
 } from './style'
 
-import { IoCameraOutline } from 'react-icons/io5'
-
-export default function CreateAccount() {
+export default function CreateProfile() {
   const filePickerRef = useRef<any>(null)
+  const [isNameInputField, setIsNameInputField] = useState('')
   const [selectedFile, setSelectedFile] = useState<any>(null)
-
+  const [loading, setLoading] = useState(false)
+  const { user } = useAuthContext()
   const navigate = useNavigate()
+  const { setStatus } = useStore()
+
+  const handleSubmit = async (event: { preventDefault: () => void }) => {
+    event.preventDefault()
+    setStatus('loading')
+
+    if (loading) return setLoading(true)
+
+    const imageReference = ref(firebaseStorage, `avatars/${user?.uid}/image`)
+
+    await uploadString(imageReference, selectedFile, 'data_url').then(
+      async () => {
+        const downloadURL = await getDownloadURL(imageReference)
+
+        await updateDoc(doc(firebaseDb, `users/${user?.uid}`), {
+          name: isNameInputField,
+          avatarUrl: downloadURL,
+        })
+      }
+    )
+
+    setLoading(false)
+    setSelectedFile(null)
+    setStatus('success')
+    navigate(`/`)
+  }
 
   const addImageToPost = (event: ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader()
@@ -34,15 +68,10 @@ export default function CreateAccount() {
     }
   }
 
-  const handleSubmit = () => {
-    navigate('/create/account')
-  }
-
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
-        <Title>Create Account</Title>
-
+        <Title tabIndex={0}>Create your account</Title>
         {selectedFile ? (
           <ImageResult
             tabIndex={0}
@@ -53,12 +82,13 @@ export default function CreateAccount() {
           </ImageResult>
         ) : (
           <AddImage
+            tabIndex={0}
             role="input"
             aria-label="Select your profile picture"
             onClick={() => filePickerRef.current.click()}
           >
             <label htmlFor="fileupload">
-              <IoCameraOutline />
+              <IoCameraOutline tabIndex={-1} />
             </label>
 
             <input
@@ -74,12 +104,25 @@ export default function CreateAccount() {
           </AddImage>
         )}
 
-        <div>
-          <Label htmlFor="Name">Name</Label>
-          <Input type="text" name="Name" id="Name" placeholder="Name" />
-        </div>
+        <>
+          <Label htmlFor="Full Name">Full Name *</Label>
+          <Input
+            type="text"
+            name="name"
+            id="Full Name"
+            onChange={(event) => setIsNameInputField(event.target.value)}
+            placeholder="Name"
+          />
+        </>
 
-        <Button type="submit">Done</Button>
+        <Button
+          type="submit"
+          aria-label="Done"
+          tabIndex={0}
+          onClick={handleSubmit}
+        >
+          {loading ? 'Done...' : 'Done'}
+        </Button>
       </Form>
     </Container>
   )

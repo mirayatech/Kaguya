@@ -1,2 +1,2 @@
 export * from './Navbar/Navbar'
-export * from './Spinner/Loading/LoadingSpinner'
+export * from './Spinner/Suspense/SuspenseSpinner'
