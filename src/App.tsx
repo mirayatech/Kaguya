@@ -7,6 +7,7 @@ export function App() {
   const Anime = lazy(() => import('./pages/Anime'))
   const Login = lazy(() => import('./pages/Login'))
   const Register = lazy(() => import('./pages/Register'))
+  const CreateAccount = lazy(() => import('./pages/CreateAccount'))
 
   return (
     <AuthContextProvider>
@@ -25,6 +26,15 @@ export function App() {
           element={
             <Suspense fallback={<LoadingSpinner />}>
               <Login />
+            </Suspense>
+          }
+        />
+
+        <Route
+          path="/create/account"
+          element={
+            <Suspense fallback={<LoadingSpinner />}>
+              <CreateAccount />
             </Suspense>
           }
         />

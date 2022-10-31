@@ -46,32 +46,42 @@ export const Input = styled.input`
   background-color: ${theme.MediumGrey};
 `
 
-export const Wrapper = styled.div`
-  position: relative;
-`
-
-export const Toggle = styled.button`
-  top: 22px;
-  right: 10px;
-  border: none;
-  font-size: 1rem;
+export const AddImage = styled.div`
   cursor: pointer;
-  position: absolute;
-  color: ${theme.Grey};
-  background-color: transparent;
+  width: 80px;
+  margin: auto;
+  height: 80px;
+  padding: 30px;
+  padding: 30px;
+  display: flex;
+  margin-bottom: 5px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: ${theme.MediumGrey};
+  label {
+    cursor: pointer;
+    color: ${theme.Grey};
+    font-size: 30px;
+    display: flex;
+  }
 `
 
-export const Info = styled.p`
-  text-align: center;
-  color: ${theme.Grey};
-  a {
-    padding-left: 5px;
-    color: ${theme.Red};
-    transition: all 0.2s ease;
+export const ImageResult = styled.button`
+  margin: auto;
+  border: none;
+  display: flex;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 5px;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
 
-    :hover {
-      color: ${theme.Primary};
-    }
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
   }
 `
 
@@ -84,8 +94,8 @@ export const Button = styled.button`
   font-size: 1rem;
   font-weight: 500;
   border-radius: 2px;
+  margin: 10px 0 0 0;
   color: ${theme.White};
-  margin: 10px 0 20px 0;
   justify-content: center;
   transition: all 0.2s ease;
   background-color: ${theme.Primary};
