@@ -31,7 +31,7 @@ export function Navbar() {
             <Image src={Logo} alt="" />
           </Link>
 
-          <Link className="link right" to="/animes">
+          <Link className="link right" to="/">
             Anime
           </Link>
           <Link className="link left" to="/mangas">
