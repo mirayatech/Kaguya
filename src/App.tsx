@@ -6,8 +6,8 @@ import { Toaster } from 'react-hot-toast'
 
 export function App() {
   const Anime = lazy(() => import('./pages/Anime'))
-  const Login = lazy(() => import('./pages/Login'))
-  const Register = lazy(() => import('./pages/Register'))
+  const SignIn = lazy(() => import('./pages/SignIn'))
+  const SignUp = lazy(() => import('./pages/SignUp'))
   const CreateAccount = lazy(() => import('./pages/CreateAccount'))
 
   return (
@@ -24,10 +24,10 @@ export function App() {
           }
         />
         <Route
-          path="/login"
+          path="/signin"
           element={
             <Suspense fallback={<SuspenseSpinner />}>
-              <Login />
+              <SignIn />
             </Suspense>
           }
         />
@@ -41,10 +41,10 @@ export function App() {
           }
         />
         <Route
-          path="/register"
+          path="/signup"
           element={
             <Suspense fallback={<SuspenseSpinner />}>
-              <Register />
+              <SignUp />
             </Suspense>
           }
         />
