@@ -1,6 +1,18 @@
 import { Link } from 'react-router-dom'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { useState } from 'react'
+import {
+  Button,
+  Container,
+  Flex,
+  Form,
+  Info,
+  Input,
+  Label,
+  Title,
+  Toggle,
+  Wrapper,
+} from './style'
 
 export default function Register() {
   const [isPasswordShown, setIsPasswordShown] = useState(false)
@@ -10,44 +22,44 @@ export default function Register() {
     setIsPasswordShown(!isPasswordShown)
   }
   return (
-    <form>
-      <h1>Register</h1>
-      <div>
+    <Container>
+      <Form>
+        <Title>Register</Title>
+        <Flex>
+          <Label htmlFor="Name">Name</Label>
+          <Input type="text" name="Name" id="Name" placeholder="Name" />
+          <Label htmlFor="Email">Email</Label>
+          <Input type="text" name="Email" id="Email" placeholder="Email" />
+        </Flex>
         <div>
-          <label htmlFor="Email">Email</label>
-          <input type="text" name="Email" id="Email" />
+          <Wrapper>
+            <Label htmlFor="Password">Password</Label>
+            <Input
+              type={isPasswordShown ? 'text' : 'password'}
+              name="Pasword"
+              id="Password"
+              placeholder="Passsword"
+            />
+            <Toggle aria-label="toogle password" onClick={showPasssword}>
+              {isPasswordShown ? <FaEyeSlash /> : <FaEye />}
+            </Toggle>
+          </Wrapper>
+          <div>
+            <Label htmlFor="confirm-password">Confirm Password</Label>
+            <Input
+              type={isPasswordShown ? 'text' : 'password'}
+              name="Pasword"
+              id="confirm-password"
+              placeholder="Confirm passsword"
+            />
+          </div>
         </div>
-        <div>
-          <label htmlFor="Email">Email</label>
-          <input type="text" name="Email" id="Email" />
-        </div>
-      </div>
-      <div>
-        <div>
-          <label htmlFor="Password">Password</label>
-          <input
-            type={isPasswordShown ? 'text' : 'password'}
-            name="Pasword"
-            id="Password"
-          />
-          <button aria-label="toogle password" onClick={showPasssword}>
-            {isPasswordShown ? <FaEyeSlash /> : <FaEye />}
-          </button>
-        </div>
-        <div>
-          <label htmlFor="confirm-password">Confirm Password</label>
-          <input
-            type={isPasswordShown ? 'text' : 'password'}
-            name="Pasword"
-            id="confirm-password"
-          />
-        </div>
-      </div>
-      <button type="submit">Register</button>
+        <Button type="submit">Register</Button>
 
-      <p>
-        Already have an account? <Link to="/login">Sign in.</Link>
-      </p>
-    </form>
+        <Info>
+          Already have an account? <Link to="/login">Sign in.</Link>
+        </Info>
+      </Form>
+    </Container>
   )
 }
