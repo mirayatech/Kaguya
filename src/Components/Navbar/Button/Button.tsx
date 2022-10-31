@@ -40,14 +40,20 @@ export function Button() {
               },
             }}
           >
-            <Link to="/login" onClick={() => setIsOpen(false)}>
-              Login
-            </Link>
             <Link to="/" onClick={() => setIsOpen(false)}>
               Anime
             </Link>
             <Link to="/mangas" onClick={() => setIsOpen(false)}>
               Manga
+            </Link>
+            <Link to="/favorites" onClick={() => setIsOpen(false)}>
+              Favorite
+            </Link>
+            <Link to="/bookmarks" onClick={() => setIsOpen(false)}>
+              Bookmark
+            </Link>
+            <Link to="/login" onClick={() => setIsOpen(false)}>
+              Login
             </Link>
           </motion.div>
         </ClickAwayListener>

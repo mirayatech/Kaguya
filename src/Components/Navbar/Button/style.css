@@ -18,6 +18,10 @@
   transition: all 0.3s ease;
 }
 
+.menu a:last-child {
+  color: #f0324c;
+}
+
 .menu a:not(:last-child) {
   border-bottom: 1px solid #403f3f;
 }

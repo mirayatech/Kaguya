@@ -7,6 +7,7 @@ import './style.css'
 import { Nav, NavContainer, Wrapper, Image } from './style'
 import { useAuthContext } from '../../context'
 import { Button } from './Button/Button'
+import { Menu } from './Menu/Menu'
 
 export function Navbar() {
   const [navbar, setNavbar] = useState(false)
@@ -36,6 +37,13 @@ export function Navbar() {
           <Link className="link left" to="/mangas">
             Manga
           </Link>
+
+          <Link className="link right" to="/favorites">
+            Favorite
+          </Link>
+          <Link className="link left" to="/bookmarks">
+            Bookmark
+          </Link>
         </Wrapper>
 
         <Wrapper>
@@ -43,7 +51,7 @@ export function Navbar() {
             <HiOutlineSearch className="search__svg" />
           </Link>
 
-          {user ? '' : <Button />}
+          {user ? <Menu /> : <Button />}
         </Wrapper>
       </NavContainer>
     </Nav>
