@@ -5,6 +5,7 @@ import { LoadingSpinner, Navbar } from './Components'
 import { firebaseAuth, useUserStore } from './library'
 
 export function App() {
+  const Anime = lazy(() => import('./pages/Anime'))
   const Login = lazy(() => import('./pages/Login'))
   const Register = lazy(() => import('./pages/Register'))
 
@@ -25,6 +26,14 @@ export function App() {
     <div>
       <Navbar />
       <Routes>
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<LoadingSpinner />}>
+              <Anime />
+            </Suspense>
+          }
+        />
         <Route
           path="/login"
           element={
