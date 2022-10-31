@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { SuspenseSpinner, Navbar } from './Components'
 import { AuthContextProvider } from './context'
+import { Toaster } from 'react-hot-toast'
 
 export function App() {
   const Anime = lazy(() => import('./pages/Anime'))
@@ -11,6 +12,7 @@ export function App() {
 
   return (
     <AuthContextProvider>
+      <Toaster position="top-center" />
       <Navbar />
       <Routes>
         <Route

@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/react-in-jsx-scope */
+import toast from 'react-hot-toast'
+
 import { ChangeEvent, useRef, useState } from 'react'
 
 import { updateDoc, doc } from 'firebase/firestore'
@@ -53,6 +53,14 @@ export default function CreateProfile() {
     setSelectedFile(null)
     setStatus('success')
     navigate(`/`)
+    toast('Successfully created your account.', {
+      icon: '🎉',
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    })
   }
 
   const addImageToPost = (event: ChangeEvent<HTMLInputElement>) => {
