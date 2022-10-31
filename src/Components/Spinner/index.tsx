@@ -1,1 +1,1 @@
-export * from './Loading/LoadingSpinner'
+export * from './Suspense/SuspenseSpinner'
