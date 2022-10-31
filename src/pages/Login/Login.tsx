@@ -1,53 +1,91 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+
+import { useFormState, useSignInWithEmailAndPassword } from '../../hooks/'
+import { Alert } from '../Register/style'
 import {
+  Button,
   Container,
   Form,
-  Title,
-  Label,
-  Input,
-  Wrapper,
-  Toggle,
   Info,
-  Button,
+  Input,
+  Label,
+  Title,
+  Toggle,
+  Wrapper,
 } from './style'
 
-export default function Login() {
-  const [isPasswordShown, setIsPasswordShown] = useState(false)
+export default function Signin() {
+  const [passwordShown, setPasswordShown] = useState(false)
 
-  const showPasssword = (event: { preventDefault: () => void }) => {
+  const { isSignInError, signInWithEmailAndPassword } =
+    useSignInWithEmailAndPassword()
+
+  const {
+    handleChange,
+    formState: { password, email },
+  } = useFormState({
+    password: '',
+    email: '',
+  })
+
+  const togglePassword = (event: { preventDefault: () => void }) => {
     event.preventDefault()
-    setIsPasswordShown(!isPasswordShown)
+    setPasswordShown(!passwordShown)
+  }
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    signInWithEmailAndPassword(email, password)
   }
 
   return (
     <Container>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Title>Login</Title>
-        <div>
-          <Label htmlFor="Email">Email</Label>
-          <Input type="text" name="Email" id="Email" placeholder="Email" />
-        </div>
         <Wrapper>
-          <Label htmlFor="Password">Password</Label>
+          <Label htmlFor="email">Email</Label>
+
           <Input
-            type={isPasswordShown ? 'text' : 'password'}
-            placeholder="Password"
-            name="Pasword"
-            id="Password"
+            type="email"
+            name="email"
+            id="email"
+            onChange={handleChange}
+            aria-required="true"
+            value={email}
           />
-          <Toggle aria-label="toogle password" onClick={showPasssword}>
-            {isPasswordShown ? <FaEyeSlash /> : <FaEye />}
-          </Toggle>
         </Wrapper>
 
-        <Button type="submit">Login</Button>
+        <Wrapper>
+          <Label htmlFor="Password">Password</Label>
+          <Wrapper>
+            <Input
+              type={passwordShown ? 'text' : 'password'}
+              name="password"
+              id="Password"
+              onChange={handleChange}
+              aria-required="true"
+              value={password}
+            />
+            <Toggle onClick={togglePassword}>
+              {passwordShown ? <FaEyeSlash /> : <FaEye />}
+            </Toggle>
+          </Wrapper>
+        </Wrapper>
+
+        <Button type="submit">Sign in</Button>
 
         <Info>
-          Do not have an account yet? <Link to="/register">Sign up.</Link>
+          Do not have an account yet?
+          <Link to="/register">Register.</Link>
         </Info>
       </Form>
+      {isSignInError && (
+        <Alert role="alert">Password or email is invalid.</Alert>
+      )}
     </Container>
   )
 }

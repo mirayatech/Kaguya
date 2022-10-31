@@ -5,6 +5,7 @@ import { theme } from '../../styles/theme'
 export const Container = styled.div`
   height: 100vh;
   display: flex;
+  flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
