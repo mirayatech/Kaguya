@@ -1,29 +1,15 @@
-import { onAuthStateChanged } from 'firebase/auth'
-import { lazy, Suspense, useEffect } from 'react'
+import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { LoadingSpinner, Navbar } from './Components'
-import { firebaseAuth, useUserStore } from './library'
+import { AuthContextProvider } from './context'
 
 export function App() {
   const Anime = lazy(() => import('./pages/Anime'))
   const Login = lazy(() => import('./pages/Login'))
   const Register = lazy(() => import('./pages/Register'))
 
-  // const currentUser = useUserStore((state) => state.currentUser)
-  const setCurrentUser = useUserStore((state) => state.setCurrentUser)
-
-  useEffect(() => {
-    onAuthStateChanged(firebaseAuth, (user) => {
-      if (user) {
-        setCurrentUser(user)
-        console.log('User:', user)
-      }
-    })
-  }, [])
-
-  // if (typeof currentUser === 'undefined') return <LoadingSpinner />
   return (
-    <div>
+    <AuthContextProvider>
       <Navbar />
       <Routes>
         <Route
@@ -51,6 +37,6 @@ export function App() {
           }
         />
       </Routes>
-    </div>
+    </AuthContextProvider>
   )
 }
