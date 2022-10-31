@@ -21,9 +21,6 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       setUser(currentUser)
       console.log('User', currentUser)
     })
-    return () => {
-      unsubscribe()
-    }
   }, [])
 
   return (
