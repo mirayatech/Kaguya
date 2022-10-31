@@ -5,9 +5,12 @@ import { useState } from 'react'
 
 import './style.css'
 import { Nav, NavContainer, Wrapper, Image } from './style'
+import { useAuthContext } from '../../context'
+import { Button } from './Button/Button'
 
 export function Navbar() {
   const [navbar, setNavbar] = useState(false)
+  const { user } = useAuthContext()
 
   const changeBackground = () => {
     if (window.scrollY >= 80) {
@@ -39,9 +42,8 @@ export function Navbar() {
           <Link to="/search" className="search__link">
             <HiOutlineSearch className="search__svg" />
           </Link>
-          <Link to="/login" className="login__link">
-            Login
-          </Link>
+
+          {user ? '' : <Button />}
         </Wrapper>
       </NavContainer>
     </Nav>

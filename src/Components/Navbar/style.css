@@ -17,6 +17,7 @@
 }
 
 .search__link {
+  display: flex;
   color: white;
 }
 
@@ -32,4 +33,17 @@
   border-radius: 4px;
   text-decoration: none;
   background-color: #f0324c;
+}
+
+@media screen and (max-width: 748px) {
+  .link {
+    display: none;
+  }
+  .login__link {
+    display: none;
+  }
+
+  .search__link .search__svg {
+    font-size: 1.7rem;
+  }
 }

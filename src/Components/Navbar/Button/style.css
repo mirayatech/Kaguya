@@ -1,0 +1,27 @@
+.menu {
+  top: 50px;
+  right: 5px;
+  width: 130px;
+  display: flex;
+  position: absolute;
+  border-radius: 4px;
+  flex-direction: column;
+  background-color: #262626;
+}
+
+.menu a {
+  padding: 15px;
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.menu a:not(:last-child) {
+  border-bottom: 1px solid #403f3f;
+}
+
+.menu a:hover {
+  background-color: #393939;
+}
