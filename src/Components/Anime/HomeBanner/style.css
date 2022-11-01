@@ -37,7 +37,9 @@ li .dot {
 }
 
 .play__link {
+  opacity: 0;
   padding-left: 50px;
+  transition: all 0.3s ease;
   transform: translateX(-100px);
 }
 
@@ -46,7 +48,7 @@ li .dot {
   display: flex;
   margin-left: 50px;
   border-radius: 50%;
-  border: 1px solid white;
+  border: 2px solid white;
   transition: all 0.3s ease;
   background-color: transparent;
 }

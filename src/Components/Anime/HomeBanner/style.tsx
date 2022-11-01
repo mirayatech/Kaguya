@@ -25,7 +25,11 @@ export const Banner = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: color 0.3s ease;
+  transition: 0.3s ease;
+
+  :hover .play__link {
+    opacity: 1;
+  }
 `
 
 export const Container = styled.div`
