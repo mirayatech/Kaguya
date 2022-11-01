@@ -1,3 +1,8 @@
+import { useAuthContext } from '../../context'
+import { Favorites, Info } from '.'
+
 export default function Favorite() {
-  return <div>Favorite</div>
+  const { user } = useAuthContext()
+
+  return <>{user?.uid ? <Favorites /> : <Info />}</>
 }
