@@ -16,3 +16,7 @@ input,
 button {
   outline: none;
 }
+
+ul {
+  list-style: none;
+}
