@@ -1,20 +1,24 @@
 import { AnimeType } from '../../../library'
-
 import { FaRegSmile } from 'react-icons/fa'
+import { RiPlayFill } from 'react-icons/ri'
+
 import { HiHeart } from 'react-icons/hi'
 import {
   Banner,
   TopGardient,
-  AnimeInfo,
+  Container,
   Title,
   Wrapper,
   MiniWrapper,
   Summary,
+  Info,
+  Rate,
 } from './style'
 
 import { BsDot } from 'react-icons/bs'
 
 import './style.css'
+import { Link } from 'react-router-dom'
 
 type HomebannerProps = {
   animeInfo: AnimeType | undefined
@@ -39,37 +43,50 @@ export function Homebanner({ animeInfo }: HomebannerProps) {
     >
       <TopGardient />
 
-      <AnimeInfo>
+      <Container>
         <Wrapper>
-          <Title>{animeInfo?.title}</Title>
-
           <MiniWrapper>
-            <p>
-              <FaRegSmile className="smile__svg" /> {score}&#37;
-            </p>
-            <p>
-              <HiHeart className="heart__svg" /> {animeInfo?.favorites}
-            </p>
+            <Title>{animeInfo?.title}</Title>
+            <Info>
+              <Rate>
+                <FaRegSmile className="smile__svg" /> {score}&#37;
+              </Rate>
+              <Rate>
+                <HiHeart className="heart__svg" /> {animeInfo?.favorites}
+              </Rate>
 
-            <ul>
-              {animeInfo?.genres.map((genre) => (
-                <li key={genre.mal_id}>
-                  {genre.name} <BsDot className="dot" />
-                </li>
-              ))}
+              <ul>
+                {animeInfo?.genres.map((genre) => (
+                  <li key={genre.mal_id}>
+                    {genre.name} <BsDot className="dot" />
+                  </li>
+                ))}
 
-              {animeInfo?.themes.map((theme) => (
-                <li key={theme.mal_id}>
-                  {theme.name} <BsDot className="dot" />
-                </li>
-              ))}
-            </ul>
+                {animeInfo?.themes.map((theme) => (
+                  <li key={theme.mal_id}>
+                    {theme.name} <BsDot className="dot" />
+                  </li>
+                ))}
+              </ul>
+            </Info>
+            <Link to={`/animes/${animeInfo?.mal_id}`} aria-label="Go to Anime">
+              <Summary>
+                {truncateString(animeInfo?.synopsis as string, 250)}
+              </Summary>
+            </Link>
           </MiniWrapper>
-          <Summary>
-            {truncateString(animeInfo?.synopsis as string, 200)}
-          </Summary>
+
+          <Link
+            to={`/animes/${animeInfo?.mal_id}`}
+            aria-label="Go to Anime"
+            className="play__link"
+          >
+            <span>
+              <RiPlayFill className="play__svg" />
+            </span>
+          </Link>
         </Wrapper>
-      </AnimeInfo>
+      </Container>
     </Banner>
   )
 }
