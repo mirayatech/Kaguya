@@ -1,4 +1,7 @@
+import { useState } from 'react'
 import { AnimeType } from '../../../library'
+
+import { Image, Poster } from './style'
 
 type RowSliderProps = {
   anime: AnimeType
@@ -7,12 +10,12 @@ type RowSliderProps = {
 
 export function RowSlider({ anime, setAnimeInfo }: RowSliderProps) {
   return (
-    <div>
-      <img
+    <Image>
+      <Poster
         src={anime.images.jpg.large_image_url}
         alt=""
         onClick={() => setAnimeInfo(anime)}
       />
-    </div>
+    </Image>
   )
 }
