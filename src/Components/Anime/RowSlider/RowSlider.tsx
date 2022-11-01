@@ -1,3 +1,3 @@
-export function HeadlessSwiper() {
+export function RowSlider() {
   return <div>HeadlessSwiper</div>
 }
