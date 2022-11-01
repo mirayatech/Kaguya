@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { theme } from '../../../styles/theme'
 
 export const TopGardient = styled.div`
   width: 100%;
@@ -24,19 +25,23 @@ export const Banner = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  transition: color 0.3s ease;
 `
 
-export const AnimeInfo = styled.div`
+export const Container = styled.div`
   width: 100%;
   margin: auto;
   padding: 0 30px;
+  position: absolute;
 `
 
 export const Wrapper = styled.div`
   margin: auto;
   display: flex;
   max-width: 2200px;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 `
 
 export const Title = styled.h1`
@@ -45,20 +50,28 @@ export const Title = styled.h1`
   font-size: calc(36 / 16 * 1rem);
 `
 
-export const MiniWrapper = styled.div`
+export const Info = styled.div`
   display: flex;
-  align-items: center;
   margin-bottom: 15px;
+`
 
-  p {
-    display: flex;
-    font-weight: 500;
-    align-items: center;
-    font-size: calc(18 / 16 * 1rem);
-  }
+export const MiniWrapper = styled.div`
+  max-width: 2200px;
+`
+
+export const Rate = styled.p`
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  font-size: calc(18 / 16 * 1rem);
 `
 
 export const Summary = styled.p`
   color: #d1d5db;
   max-width: 800px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  :hover {
+    color: ${theme.White};
+  }
 `

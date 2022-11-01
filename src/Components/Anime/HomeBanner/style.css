@@ -24,7 +24,7 @@ li .dot {
 }
 
 .smile__svg {
-  color: #2dcb70;
+  color: #63c263;
   font-size: 1.4rem;
   margin-right: 0.5rem;
 }
@@ -34,4 +34,38 @@ li .dot {
   font-size: 1.5rem;
   margin-left: 1.8rem;
   margin-right: 0.3rem;
+}
+
+.play__link {
+  padding-left: 50px;
+  transform: translateX(-100px);
+}
+
+.play__link span {
+  padding: 20px;
+  display: flex;
+  margin-left: 50px;
+  border-radius: 50%;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.play__link span:hover {
+  background-color: rgba(255, 255, 255, 0.172);
+}
+
+.play__svg {
+  color: white;
+  font-size: 2.3rem;
+}
+
+@media screen and (min-width: 1500px) {
+  .play__link {
+    transform: translateX(-500px);
+  }
+}
+
+a {
+  text-decoration: none;
 }
