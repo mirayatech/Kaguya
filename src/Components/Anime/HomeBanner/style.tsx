@@ -17,7 +17,7 @@ export const TopGardient = styled.div`
 `
 
 export const Banner = styled.div`
-  height: 60vh;
+  height: 50vh;
   margin: auto;
   display: flex;
   position: relative;
