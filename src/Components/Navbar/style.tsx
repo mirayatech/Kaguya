@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 export const Nav = styled.div`
   width: 100%;
-  z-index: 10;
+  z-index: 50;
   position: fixed;
   padding: 15px 30px;
   transition: all 0.3s ease;
