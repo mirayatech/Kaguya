@@ -30,6 +30,9 @@ export const Banner = styled.div`
   :hover .play__link {
     opacity: 1;
   }
+  @media screen and (max-width: 748px) {
+    display: none;
+  }
 `
 
 export const Container = styled.div`
@@ -56,7 +59,8 @@ export const Title = styled.h1`
 
 export const Info = styled.div`
   display: flex;
-  margin-bottom: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
 `
 
 export const MiniWrapper = styled.div`
@@ -68,6 +72,8 @@ export const Rate = styled.p`
   font-weight: 500;
   align-items: center;
   font-size: calc(18 / 16 * 1rem);
+  padding-bottom: 10px;
+  padding-right: 25px;
 `
 
 export const Summary = styled.p`

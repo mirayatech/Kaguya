@@ -51,7 +51,7 @@ export function Homebanner({ animeInfo }: HomebannerProps) {
               <Rate>
                 <FaRegSmile className="smile__svg" /> {score}&#37;
               </Rate>
-              <Rate>
+              <Rate className="last">
                 <HiHeart className="heart__svg" /> {animeInfo?.favorites}
               </Rate>
 

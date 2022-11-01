@@ -3,6 +3,9 @@ import { theme } from '../../styles/theme'
 
 export const Row = styled.div`
   position: relative;
+  @media screen and (max-width: 748px) {
+    display: none;
+  }
 `
 
 export const Slider = styled.div`
@@ -43,6 +46,13 @@ export const Buttons = styled.div`
     }
     @media screen and (min-width: 1500px) {
       transform: translateY(-0px);
+    }
+
+    @media screen and (max-width: 748px) {
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 6px;
+      margin: 0 10px;
     }
   }
 `

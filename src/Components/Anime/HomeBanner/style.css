@@ -1,5 +1,6 @@
 ul {
   display: flex;
+  padding-bottom: 10px;
 }
 
 li {
@@ -7,10 +8,6 @@ li {
   font-weight: 500;
   align-items: center;
   font-size: calc(18 / 16 * 1rem);
-}
-
-li:first-child {
-  margin-left: 1.8rem;
 }
 
 li:last-child .dot {
@@ -32,7 +29,6 @@ li .dot {
 .heart__svg {
   color: #ff6b6b;
   font-size: 1.5rem;
-  margin-left: 1.8rem;
   margin-right: 0.3rem;
 }
 
@@ -70,4 +66,38 @@ li .dot {
 
 a {
   text-decoration: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .play__link {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 748px) {
+  .smile__svg {
+    font-size: 1.2rem;
+  }
+
+  .heart__svg {
+    font-size: 1.35rem;
+  }
+
+  li {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 448px) {
+  .smile__svg {
+    font-size: 1rem;
+  }
+
+  .heart__svg {
+    font-size: 1.15rem;
+  }
+
+  li {
+    font-size: 0.9rem;
+  }
 }

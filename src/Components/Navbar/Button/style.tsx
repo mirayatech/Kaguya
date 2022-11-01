@@ -13,6 +13,10 @@ export const HamburgerMenu = styled.button`
   @media screen and (min-width: 749px) {
     display: none;
   }
+
+  @media screen and (max-width: 448px) {
+    font-size: 1.8rem;
+  }
 `
 
 export const Wrapper = styled.div`

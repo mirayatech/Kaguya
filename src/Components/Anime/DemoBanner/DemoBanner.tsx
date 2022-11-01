@@ -56,9 +56,7 @@ export function DemoBanner() {
                 <li>
                   Fantasy <BsDot className="dot" />
                 </li>
-                <li>
-                  Supernatural <BsDot className="dot" />
-                </li>
+
                 <li>Shounen</li>
               </ul>
             </Info>

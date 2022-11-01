@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
-import { DemoBanner, Homebanner, HomeCards, RowSlider } from '../../Components'
+import {
+  DemoBanner,
+  Homebanner,
+  HomeCards,
+  MobileRowSlider,
+  RowSlider,
+} from '../../Components'
 import { AnimeType, CURRENT_SEASON_URL } from '../../library'
 import { IoChevronBackSharp, IoChevronForwardOutline } from 'react-icons/io5'
 import { Slider, Buttons, Row } from './style'
@@ -57,6 +63,10 @@ export default function Anime() {
             />
           ))}
         </Slider>
+
+        {animes?.map((anime) => (
+          <MobileRowSlider anime={anime} key={anime.mal_id} />
+        ))}
       </Row>
 
       <HomeCards />

@@ -17,6 +17,9 @@ export const Image = styled.div`
     width: 14rem;
     height: 20rem;
   }
+
+  @media screen and (max-width: 748px) {
+  }
 `
 
 export const Poster = styled.img`

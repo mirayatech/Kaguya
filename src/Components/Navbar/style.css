@@ -52,3 +52,9 @@
     font-size: 1.7rem;
   }
 }
+
+@media screen and (max-width: 448px) {
+  .search__link .search__svg {
+    font-size: 1.5rem;
+  }
+}

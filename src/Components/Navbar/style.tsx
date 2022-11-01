@@ -23,4 +23,8 @@ export const Wrapper = styled.div`
 
 export const Image = styled.img`
   width: 35px;
+
+  @media screen and (max-width: 448px) {
+    width: 30px;
+  }
 `
