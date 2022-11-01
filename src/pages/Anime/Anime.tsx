@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Homebanner, RowSlider } from '../../Components'
+import { DemoBanner, Homebanner, RowSlider } from '../../Components'
 import { AnimeType, CURRENT_SEASON_URL } from '../../library'
 import { IoChevronBackSharp, IoChevronForwardOutline } from 'react-icons/io5'
 import { Slider, Buttons, Row } from './style'
@@ -31,7 +31,7 @@ export default function Anime() {
 
   return (
     <>
-      {animeInfo ? <Homebanner animeInfo={animeInfo} /> : ''}
+      {animeInfo ? <Homebanner animeInfo={animeInfo} /> : <DemoBanner />}
 
       <Row>
         <Buttons>
