@@ -21,6 +21,13 @@ export type AnimeType = {
     }
   ]
 
+  themes: [
+    {
+      mal_id: number
+      name: string
+    }
+  ]
+
   images: {
     jpg: {
       large_image_url: string
