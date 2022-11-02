@@ -1,0 +1,3 @@
+# Kaguya
+Kaguya provides you with anime, manga, and related resources using Jikan. More coming soon...
+
