@@ -27,7 +27,6 @@ export default function Anime() {
   const getCurrentSeasonAnime = async () => {
     const response = await fetch(CURRENT_SEASON_URL)
     const data = await response.json()
-    console.log(data.data)
     setAnimes(data.data)
   }
 
