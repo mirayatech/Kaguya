@@ -19,6 +19,7 @@ export const Image = styled.div`
   }
 
   @media screen and (max-width: 748px) {
+    display: none;
   }
 `
 
@@ -26,9 +27,4 @@ export const Poster = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-`
-
-export const Slider = styled.div`
-  display: flex;
-  flex-direction: row;
 `
