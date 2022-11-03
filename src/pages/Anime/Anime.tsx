@@ -8,7 +8,7 @@ import {
 } from '../../Components'
 import { AnimeType, CURRENT_SEASON_URL } from '../../library'
 import { IoChevronBackSharp, IoChevronForwardOutline } from 'react-icons/io5'
-import { Slider, Buttons, Row } from './style'
+import { Slider, Buttons, Row, MobileSlider } from './style'
 
 export default function Anime() {
   const [animes, setAnimes] = useState<AnimeType[]>()
@@ -41,16 +41,10 @@ export default function Anime() {
 
       <Row>
         <Buttons>
-          <button
-            onClick={slideLeft}
-            className="scroll__button netflix scroll__left"
-          >
+          <button onClick={slideLeft}>
             <IoChevronBackSharp />
           </button>
-          <button
-            onClick={slideRight}
-            className="scroll__button netflix scroll__left"
-          >
+          <button onClick={slideRight}>
             <IoChevronForwardOutline />
           </button>
         </Buttons>
@@ -63,10 +57,11 @@ export default function Anime() {
             />
           ))}
         </Slider>
-
-        {animes?.map((anime) => (
-          <MobileRowSlider anime={anime} key={anime.mal_id} />
-        ))}
+        <MobileSlider>
+          {animes?.map((anime) => (
+            <MobileRowSlider anime={anime} key={anime.mal_id} />
+          ))}
+        </MobileSlider>{' '}
       </Row>
 
       <HomeCards />
