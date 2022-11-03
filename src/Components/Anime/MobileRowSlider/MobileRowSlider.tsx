@@ -16,7 +16,7 @@ export function MobileRowSlider({ anime }: MobileRowSliderProps) {
     <Link to={`/animes/${anime.mal_id}`}>
       <Wrapper
         style={{
-          backgroundImage: `linear-gradient(to top, #00000090, #00000070), url(${anime?.images.jpg.large_image_url}) `,
+          backgroundImage: `linear-gradient(to top, #00000080, #00000060), url(${anime?.images.jpg.large_image_url}) `,
         }}
       >
         <InfoWrapper>
