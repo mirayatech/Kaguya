@@ -18,6 +18,10 @@ export const Slider = styled.div`
   @media screen and (min-width: 1500px) {
     margin-top: -5rem;
   }
+
+  @media screen and (max-width: 748px) {
+    display: none;
+  }
 `
 
 export const MobileSlider = styled.div`
@@ -27,6 +31,10 @@ export const MobileSlider = styled.div`
   flex-direction: row;
   scroll-behavior: smooth;
   ::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media screen and (min-width: 748px) {
     display: none;
   }
 `
