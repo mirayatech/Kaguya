@@ -22,6 +22,7 @@ export function HomeCards() {
     const res = await response.json()
     setIsPopularThisSeason(res.data)
     setIsFavoriteThisSeason(res.data)
+    console.log(res.data)
   }
 
   const getAllTimePopularAndfavorite = async () => {
@@ -38,21 +39,30 @@ export function HomeCards() {
 
   return (
     <div>
-      {isPopularThisSeason.slice(5, 10).map((data) => (
-        <PopularThisSeason key={data.mal_id} />
-      ))}
-
-      {isAllTimePopular.slice(0, 5).map((data) => (
-        <AllTimePopular key={data.mal_id} />
-      ))}
-
-      {isFavoriteThisSeason.slice(0, 5).map((data) => (
-        <FavoriteThisSeason key={data.mal_id} />
-      ))}
-
-      {isAllTimeFavorite.slice(5, 10).map((data) => (
-        <AllTimeFavorite key={data.mal_id} />
-      ))}
+      <div>
+        <h2>Popular this season</h2>
+        {isPopularThisSeason.slice(0, 5).map((data) => (
+          <PopularThisSeason anime={data} key={data.mal_id} />
+        ))}
+      </div>
+      <div>
+        <h2>All time popular</h2>
+        {isAllTimePopular.slice(0, 5).map((data) => (
+          <AllTimePopular anime={data} key={data.mal_id} />
+        ))}
+      </div>{' '}
+      <div>
+        <h2>Favorite this season</h2>
+        {isFavoriteThisSeason.slice(7, 12).map((data) => (
+          <FavoriteThisSeason anime={data} key={data.mal_id} />
+        ))}
+      </div>
+      <div>
+        <h2>All time favorite</h2>
+        {isAllTimeFavorite.slice(5, 10).map((data) => (
+          <AllTimeFavorite anime={data} key={data.mal_id} />
+        ))}
+      </div>
     </div>
   )
 }
