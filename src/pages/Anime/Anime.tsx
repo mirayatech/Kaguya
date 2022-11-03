@@ -13,15 +13,19 @@ import { Slider, Buttons, Row, MobileSlider } from './style'
 export default function Anime() {
   const [animes, setAnimes] = useState<AnimeType[]>()
   const [animeInfo, setAnimeInfo] = useState<AnimeType | undefined>(undefined)
-  const sliderRef = useRef<any>(null)
+  const sliderRef = useRef<HTMLDivElement>(null)
 
   const slideLeft = () => {
-    let slider = sliderRef.current
-    slider.scrollLeft = slider.scrollLeft - 250
+    if (sliderRef.current) {
+      const slider = sliderRef.current
+      slider.scrollLeft = slider.scrollLeft - 250
+    }
   }
   const slideRight = () => {
-    let slider = sliderRef.current
-    slider.scrollLeft = slider.scrollLeft + 250
+    if (sliderRef.current) {
+      const slider = sliderRef.current
+      slider.scrollLeft = slider.scrollLeft + 250
+    }
   }
 
   const getCurrentSeasonAnime = async () => {
