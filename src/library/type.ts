@@ -7,6 +7,8 @@ export type UserType = {
 }
 
 export type AnimeType = {
+  season: string
+  type: string
   year: number
   title: string
   mal_id: string
