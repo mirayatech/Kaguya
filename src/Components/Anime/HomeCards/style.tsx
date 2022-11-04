@@ -7,9 +7,11 @@ export const CardContainer = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  max-width: 2200px;
 
   @media screen and (min-width: 900px) {
     display: grid;
+    padding: 0 30px;
     align-items: baseline;
     justify-content: space-evenly;
     grid-template-columns: auto auto;
@@ -17,8 +19,9 @@ export const CardContainer = styled.div`
 
   @media screen and (min-width: 1280px) {
     display: grid;
+    padding: 0 30px;
     align-items: baseline;
-    justify-content: space-evenly;
+    justify-content: space-between;
     grid-template-columns: auto auto auto auto;
   }
 `
