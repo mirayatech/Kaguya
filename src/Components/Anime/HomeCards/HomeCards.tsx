@@ -6,6 +6,7 @@ import {
   AllTimeFavorite,
 } from '.'
 import { AnimeType, CURRENT_SEASON_URL, TOP_ANIME_URL } from '../../../library'
+import { CardContainer, Card, CardTitle } from './style'
 
 export function HomeCards() {
   const [isAllTimePopular, setIsAllTimePopular] = useState<AnimeType[]>([])
@@ -38,31 +39,31 @@ export function HomeCards() {
   }, [])
 
   return (
-    <div>
-      <div>
-        <h2>Popular this season</h2>
+    <CardContainer>
+      <Card>
+        <CardTitle>Popular this season</CardTitle>
         {isPopularThisSeason.slice(0, 5).map((data) => (
           <PopularThisSeason anime={data} key={data.mal_id} />
         ))}
-      </div>
-      <div>
-        <h2>All time popular</h2>
+      </Card>
+      <Card>
+        <CardTitle>All time popular</CardTitle>
         {isAllTimePopular.slice(0, 5).map((data) => (
           <AllTimePopular anime={data} key={data.mal_id} />
         ))}
-      </div>{' '}
-      <div>
-        <h2>Favorite this season</h2>
+      </Card>
+      <Card>
+        <CardTitle>Favorite this season</CardTitle>
         {isFavoriteThisSeason.slice(7, 12).map((data) => (
           <FavoriteThisSeason anime={data} key={data.mal_id} />
         ))}
-      </div>
-      <div>
-        <h2>All time favorite</h2>
+      </Card>
+      <Card>
+        <CardTitle>All time favorite</CardTitle>
         {isAllTimeFavorite.slice(5, 10).map((data) => (
           <AllTimeFavorite anime={data} key={data.mal_id} />
         ))}
-      </div>
-    </div>
+      </Card>
+    </CardContainer>
   )
 }

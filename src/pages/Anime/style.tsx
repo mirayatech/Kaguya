@@ -26,7 +26,7 @@ export const Slider = styled.div`
 
 export const MobileSlider = styled.div`
   display: flex;
-  padding: 4.5rem 0;
+  padding: 4.5rem 0 2rem 0;
   overflow-x: scroll;
   flex-direction: row;
   scroll-behavior: smooth;
