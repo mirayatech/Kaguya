@@ -23,7 +23,6 @@ export function HomeCards() {
     const res = await response.json()
     setIsPopularThisSeason(res.data)
     setIsFavoriteThisSeason(res.data)
-    console.log(res.data)
   }
 
   const getAllTimePopularAndfavorite = async () => {
