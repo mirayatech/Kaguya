@@ -14,10 +14,13 @@ export type AnimeType = {
   year: number
   title: string
   mal_id: string
+  title_japanese: string
   favorites: number
   score: number
   synopsis: string
   status: string
+
+  studios: [{ name: string; mal_id: number }]
   genres: [
     {
       mal_id: number
