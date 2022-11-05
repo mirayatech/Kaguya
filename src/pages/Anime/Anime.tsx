@@ -4,6 +4,7 @@ import {
   Homebanner,
   HomeCards,
   MobileRowSlider,
+  RandomAnimes,
   RowSlider,
 } from '../../Components'
 import { AnimeType, CURRENT_SEASON_URL } from '../../library'
@@ -68,6 +69,8 @@ export default function Anime() {
       </Row>
 
       <HomeCards />
+
+      <RandomAnimes />
     </>
   )
 }
