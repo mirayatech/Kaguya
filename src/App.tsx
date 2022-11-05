@@ -11,6 +11,7 @@ export function App() {
   const CreateAccount = lazy(() => import('./pages/CreateAccount'))
   const Favorite = lazy(() => import('./pages/Favorites/'))
   const Bookmark = lazy(() => import('./pages/Bookmarks/'))
+  const Anime = lazy(() => import('./pages/Anime/'))
 
   return (
     <AuthContextProvider>
@@ -64,6 +65,15 @@ export function App() {
           element={
             <Suspense fallback={<SuspenseSpinner />}>
               <Bookmark />
+            </Suspense>
+          }
+        />
+
+        <Route
+          path="/animes/:id"
+          element={
+            <Suspense fallback={<SuspenseSpinner />}>
+              <Anime />
             </Suspense>
           }
         />
