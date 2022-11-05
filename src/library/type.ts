@@ -25,6 +25,8 @@ export type AnimeType = {
     }
   ]
 
+  demographics: [{ mal_id: number; name: string }]
+
   themes: [
     {
       mal_id: number
