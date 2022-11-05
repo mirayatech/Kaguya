@@ -1,5 +1,6 @@
 import { BsDot } from 'react-icons/bs'
 import { HiHeart } from 'react-icons/hi'
+import { Link } from 'react-router-dom'
 import { AnimeType } from '../../../library'
 import {
   AnimeInfo,
@@ -18,10 +19,12 @@ export function Card({ anime }: CardProps) {
   return (
     <div>
       <AnimeCard>
-        <Image>
-          <Poster src={anime.images.jpg.large_image_url} alt="" />
-          <Gardient />
-        </Image>
+        <Link to={`/animes/${anime.mal_id}`}>
+          <Image>
+            <Poster src={anime.images.jpg.large_image_url} alt="" />
+            <Gardient />
+          </Image>
+        </Link>
         <AnimeInfo className="anime__info">
           <h1>{anime.title}</h1>
 
