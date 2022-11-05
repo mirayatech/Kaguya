@@ -10,6 +10,7 @@ import {
   Button,
   AnimeInfo,
   AnimeShowcase,
+  Grid,
 } from './style'
 import { BsDot } from 'react-icons/bs'
 import { SideBar, Trailer } from '../../Components'
@@ -145,9 +146,9 @@ export default function Anime() {
                 </AnimeShowcase>
               </AnimeInfo>
             </Section>
-            <div>
+            <Grid>
               <SideBar anime={anime} />
-            </div>
+            </Grid>
           </div>
         </>
       ) : (

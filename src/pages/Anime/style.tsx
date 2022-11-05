@@ -23,8 +23,9 @@ export const Banner = styled.div`
 export const Section = styled.div`
   margin: auto;
   display: flex;
-  padding: 0 30px;
+  padding: 15px 30px;
   max-width: 2200px;
+  background-color: ${theme.AlmostBlack};
 `
 
 export const Poster = styled.img`
@@ -50,7 +51,7 @@ export const Button = styled.button`
   width: 150px;
   border: none;
   border-radius: 4px;
-  transform: translateY(-50px);
+  transform: translateY(-70px);
   transition: all 0.2s ease;
 
   .play__svg {
@@ -67,7 +68,7 @@ export const AnimeInfo = styled.div`
   padding: 0 30px;
 
   h1 {
-    margin-top: -30px;
+    margin-top: -35px;
     padding-bottom: 15px;
     font-size: calc(30 / 16 * 1rem);
   }
@@ -119,4 +120,12 @@ export const AnimeShowcase = styled.div`
   div:not(:last-child) {
     margin-right: 60px;
   }
+`
+
+export const Grid = styled.div`
+  margin: auto;
+  padding: 30px;
+  max-width: 2200px;
+  display: grid;
+  grid-template-columns: 200px auto;
 `

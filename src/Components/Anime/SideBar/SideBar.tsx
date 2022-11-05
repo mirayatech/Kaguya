@@ -1,4 +1,5 @@
 import { AnimeType } from '../../../library'
+import { Sidebar } from './style'
 
 type SidebarProps = { anime: AnimeType }
 
@@ -6,10 +7,8 @@ export function SideBar({ anime }: SidebarProps) {
   const PERCENTAGE = anime?.score
   const SCORE = Math.floor((PERCENTAGE as number) * 10)
 
-  const SEASON = anime.season.charAt(0).toUpperCase() + anime.season.slice(1)
-
   return (
-    <div>
+    <Sidebar>
       <div>
         <p>Format</p>
         <p>{anime.type}</p>
@@ -43,10 +42,11 @@ export function SideBar({ anime }: SidebarProps) {
 
       <div>
         <p>Season</p>
+
         <p>
-          {SEASON} {anime.year}
+          {anime.season} {anime.year}
         </p>
       </div>
-    </div>
+    </Sidebar>
   )
 }
