@@ -6,6 +6,7 @@ import {
   MobileRowSlider,
   RandomAnimes,
   RowSlider,
+  UpcomingAnime,
 } from '../../Components'
 import { AnimeType, CURRENT_SEASON_URL } from '../../library'
 import { IoChevronBackSharp, IoChevronForwardOutline } from 'react-icons/io5'
@@ -71,6 +72,8 @@ export default function Anime() {
       <HomeCards />
 
       <RandomAnimes />
+
+      <UpcomingAnime />
     </>
   )
 }
