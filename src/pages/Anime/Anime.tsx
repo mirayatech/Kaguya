@@ -12,7 +12,7 @@ import {
   AnimeShowcase,
 } from './style'
 import { BsDot } from 'react-icons/bs'
-import { Trailer } from '../../Components'
+import { SideBar, Trailer } from '../../Components'
 import ClickAwayListener from 'react-click-away-listener'
 
 export default function Anime() {
@@ -145,6 +145,9 @@ export default function Anime() {
                 </AnimeShowcase>
               </AnimeInfo>
             </Section>
+            <div>
+              <SideBar anime={anime} />
+            </div>
           </div>
         </>
       ) : (
