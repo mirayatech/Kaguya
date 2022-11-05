@@ -5,7 +5,7 @@ import { AuthContextProvider } from './context'
 import { Toaster } from 'react-hot-toast'
 
 export function App() {
-  const Anime = lazy(() => import('./pages/HomeAnime'))
+  const HomeAnime = lazy(() => import('./pages/HomeAnime'))
   const SignIn = lazy(() => import('./pages/SignIn'))
   const SignUp = lazy(() => import('./pages/SignUp'))
   const CreateAccount = lazy(() => import('./pages/CreateAccount'))
@@ -21,7 +21,7 @@ export function App() {
           path="/"
           element={
             <Suspense fallback={<SuspenseSpinner />}>
-              <Anime />
+              <HomeAnime />
             </Suspense>
           }
         />

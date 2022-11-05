@@ -1,1 +1,1 @@
-export { default } from './Anime'
+export { default } from './HomeAnime'

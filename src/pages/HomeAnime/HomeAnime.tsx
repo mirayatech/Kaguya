@@ -13,7 +13,7 @@ import { AnimeType, CURRENT_SEASON_URL } from '../../library'
 import { IoChevronBackSharp, IoChevronForwardOutline } from 'react-icons/io5'
 import { Slider, Buttons, Row, MobileSlider } from './style'
 
-export default function Anime() {
+export default function HomeAnime() {
   const [animes, setAnimes] = useState<AnimeType[]>()
   const [animeInfo, setAnimeInfo] = useState<AnimeType | undefined>(undefined)
   const sliderRef = useRef<HTMLDivElement>(null)
