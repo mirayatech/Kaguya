@@ -28,7 +28,7 @@ export function RandomAnimes() {
   const score = Math.floor((percentage as number) * 10)
 
   const getRecentReviews = async () => {
-    const response = await fetch('https://api.jikan.moe/v4/anime/21659')
+    const response = await fetch(RANDOM_ANIME)
     const res = await response.json()
     setAnime(res.data)
   }
