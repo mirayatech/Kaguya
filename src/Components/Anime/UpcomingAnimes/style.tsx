@@ -20,16 +20,34 @@ export const Slider = styled.div`
   }
 `
 
+export const MobileSlider = styled.div`
+  display: flex;
+  padding-bottom: 30px;
+  overflow-x: scroll;
+  flex-direction: row;
+  scroll-behavior: smooth;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media screen and (min-width: 748px) {
+    display: none;
+  }
+`
+
 export const RowWrapper = styled.div`
   margin: auto;
   display: flex;
   max-width: 2200px;
-  padding: 50px 30px 15px 30px;
+  padding: 30px 30px 15px 30px;
   align-items: center;
   justify-content: space-between;
   h1 {
     text-transform: uppercase;
     font-size: calc(24 / 16 * 1rem);
+    @media screen and (max-width: 748px) {
+      font-size: calc(22 / 16 * 1rem);
+    }
   }
 `
 

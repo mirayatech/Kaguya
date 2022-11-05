@@ -48,7 +48,7 @@ export const Flex = styled.div`
     font-weight: 600;
     align-items: center;
     margin-right: 15px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: ${theme.White};
     @media screen and (max-width: 500px) {
       padding: 10px 0;
@@ -71,6 +71,7 @@ export const Flex = styled.div`
     padding: 0;
     @media screen and (max-width: 500px) {
       padding-left: 5px;
+      font-size: 0.9rem;
     }
   }
 

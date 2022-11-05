@@ -3,7 +3,7 @@ import { IoChevronBackSharp, IoChevronForwardOutline } from 'react-icons/io5'
 import { AnimeType, UPCOMING_ANIME } from '../../../library'
 import { Card } from './Card'
 import { MobileCard } from './MobileCard'
-import { Buttons, Row, Slider, RowWrapper } from './style'
+import { Buttons, Row, Slider, RowWrapper, MobileSlider } from './style'
 
 export function UpcomingAnime() {
   const [upcomingAnime, setUpcomingAnime] = useState<AnimeType[]>([])
@@ -52,7 +52,11 @@ export function UpcomingAnime() {
         ))}
       </Slider>
 
-      <MobileCard />
+      <MobileSlider>
+        {upcomingAnime?.map((anime) => (
+          <MobileCard anime={anime} key={anime.mal_id} />
+        ))}
+      </MobileSlider>
     </Row>
   )
 }
