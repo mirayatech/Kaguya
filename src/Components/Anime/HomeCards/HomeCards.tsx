@@ -39,7 +39,7 @@ export function HomeCards() {
 
   return (
     <CardContainer>
-      {/* <Card>
+      <Card>
         <CardTitle>Popular this season</CardTitle>
         {isPopularThisSeason.slice(0, 5).map((data) => (
           <PopularThisSeason anime={data} key={data.mal_id} />
@@ -62,7 +62,7 @@ export function HomeCards() {
         {isAllTimeFavorite.slice(5, 10).map((data) => (
           <AllTimeFavorite anime={data} key={data.mal_id} />
         ))}
-      </Card> */}
+      </Card>
     </CardContainer>
   )
 }
