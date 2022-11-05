@@ -7,6 +7,8 @@ export type UserType = {
 }
 
 export type AnimeType = {
+  duration: string
+  episodes: number
   season: string
   type: string
   year: number
