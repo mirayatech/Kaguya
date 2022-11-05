@@ -12,9 +12,12 @@ import {
   AnimeShowcase,
 } from './style'
 import { BsDot } from 'react-icons/bs'
+import { Trailer } from '../../Components'
+import ClickAwayListener from 'react-click-away-listener'
 
 export default function Anime() {
   const [anime, setAnime] = useState<AnimeType | null>(null)
+  const [isTrailerOpen, setIsTrailerOpen] = useState(false)
 
   const { id } = useParams()
 
@@ -43,6 +46,12 @@ export default function Anime() {
     <>
       {anime ? (
         <>
+          {isTrailerOpen && (
+            <ClickAwayListener onClickAway={() => setIsTrailerOpen(false)}>
+              <Trailer trailer={anime.trailer.youtube_id} />
+            </ClickAwayListener>
+          )}
+
           <div>
             <Banner
               style={{
@@ -53,7 +62,7 @@ export default function Anime() {
             <Section>
               <Poster src={anime.images.jpg.large_image_url} alt="" />
               <AnimeInfo>
-                <Button>
+                <Button onClick={() => setIsTrailerOpen(true)}>
                   <RiPlayFill className="play__svg" /> Watch Trailer
                 </Button>
                 <h1>{anime.title}</h1>
