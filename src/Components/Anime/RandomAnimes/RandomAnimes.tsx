@@ -24,8 +24,8 @@ import './style.css'
 export function RandomAnimes() {
   const [anime, setAnime] = useState<AnimeType | null>(null)
 
-  const percentage = anime?.score
-  const score = Math.floor((percentage as number) * 10)
+  const PERCENTAGE = anime?.score
+  const SCORE = Math.floor((PERCENTAGE as number) * 10)
 
   const getRecentReviews = async () => {
     const response = await fetch(RANDOM_ANIME)
@@ -62,7 +62,7 @@ export function RandomAnimes() {
                 <AnimeRate>
                   {anime.score ? (
                     <p>
-                      <FaRegSmile className="smile__svg" /> {score}&#37;
+                      <FaRegSmile className="smile__svg" /> {SCORE}&#37;
                     </p>
                   ) : (
                     ''

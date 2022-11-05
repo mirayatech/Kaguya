@@ -10,8 +10,8 @@ type MobileRowSliderProps = {
 }
 
 export function MobileRowSlider({ anime }: MobileRowSliderProps) {
-  const percentage = anime?.score
-  const score = Math.floor((percentage as number) * 10)
+  const PERCENTAGE = anime?.score
+  const SCORE = Math.floor((PERCENTAGE as number) * 10)
   return (
     <Link to={`/animes/${anime.mal_id}`}>
       <Wrapper
@@ -23,7 +23,7 @@ export function MobileRowSlider({ anime }: MobileRowSliderProps) {
           <h1>{anime?.title}</h1>
           <Flex>
             <p>
-              <FaRegSmile className="smile__svg" /> {score}&#37;
+              <FaRegSmile className="smile__svg" /> {SCORE}&#37;
             </p>
             <p className="last">
               <HiHeart className="heart__svg" /> {anime?.favorites}

@@ -24,8 +24,8 @@ type HomebannerProps = {
   animeInfo: AnimeType | undefined
 }
 export function Homebanner({ animeInfo }: HomebannerProps) {
-  const percentage = animeInfo?.score
-  const score = Math.floor((percentage as number) * 10)
+  const PERCENTAGE = animeInfo?.score
+  const SCORE = Math.floor((PERCENTAGE as number) * 10)
 
   const truncateString = (str: string, num: number) => {
     if (str?.length > num) {
@@ -49,7 +49,7 @@ export function Homebanner({ animeInfo }: HomebannerProps) {
             <Title>{animeInfo?.title}</Title>
             <Info>
               <Rate>
-                <FaRegSmile className="smile__svg" /> {score}&#37;
+                <FaRegSmile className="smile__svg" /> {SCORE}&#37;
               </Rate>
               <Rate className="last">
                 <HiHeart className="heart__svg" /> {animeInfo?.favorites}
