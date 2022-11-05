@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import {
   DemoBanner,
+  Footer,
   Homebanner,
   HomeCards,
   MobileRowSlider,
@@ -74,6 +75,8 @@ export default function Anime() {
       <RandomAnimes />
 
       <UpcomingAnime />
+
+      <Footer />
     </>
   )
 }
