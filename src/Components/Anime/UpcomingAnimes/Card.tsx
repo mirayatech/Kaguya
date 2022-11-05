@@ -1,4 +1,14 @@
+import { BsDot } from 'react-icons/bs'
+import { HiHeart } from 'react-icons/hi'
 import { AnimeType } from '../../../library'
+import {
+  AnimeInfo,
+  Image,
+  Poster,
+  CardTitle,
+  Gardient,
+  AnimeCard,
+} from './style'
 
 type CardProps = {
   anime: AnimeType
@@ -7,23 +17,28 @@ type CardProps = {
 export function Card({ anime }: CardProps) {
   return (
     <div>
-      <div>
-        <div>
-          <img src={anime.images.jpg.large_image_url} alt="" />
-        </div>
-        <div>
-          <p>{anime.title}</p>
+      <AnimeCard>
+        <Image>
+          <Poster src={anime.images.jpg.large_image_url} alt="" />
+          <Gardient />
+        </Image>
+        <AnimeInfo className="anime__info">
+          <h1>{anime.title}</h1>
 
           <ul>
             {anime.genres.map((genre) => (
-              <li key={genre.mal_id}>{genre.name}</li>
+              <li key={genre.mal_id}>
+                {genre.name} <BsDot className="dot__svg" />
+              </li>
             ))}
           </ul>
-          <p>{anime.favorites}</p>
-        </div>
-      </div>
+          <p>
+            <HiHeart className="heart__svg" /> {anime.favorites}
+          </p>
+        </AnimeInfo>
+      </AnimeCard>
 
-      <p>{anime.title}</p>
+      <CardTitle>{anime.title}</CardTitle>
     </div>
   )
 }

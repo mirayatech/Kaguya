@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { IoChevronBackSharp, IoChevronForwardOutline } from 'react-icons/io5'
 import { AnimeType, UPCOMING_ANIME } from '../../../library'
 import { Card } from './Card'
-import { Buttons, Row, Slider } from './style'
+import { MobileCard } from './MobileCard'
+import { Buttons, Row, Slider, RowWrapper } from './style'
 
 export function UpcomingAnime() {
   const [upcomingAnime, setUpcomingAnime] = useState<AnimeType[]>([])
@@ -34,19 +35,24 @@ export function UpcomingAnime() {
 
   return (
     <Row>
-      <Buttons>
-        <button onClick={slideLeft}>
-          <IoChevronBackSharp />
-        </button>
-        <button onClick={slideRight}>
-          <IoChevronForwardOutline />
-        </button>
-      </Buttons>
+      <RowWrapper>
+        <h1>upcoming anime on Kaguya</h1>
+        <Buttons>
+          <button onClick={slideLeft}>
+            <IoChevronBackSharp />
+          </button>
+          <button onClick={slideRight}>
+            <IoChevronForwardOutline />
+          </button>
+        </Buttons>
+      </RowWrapper>
       <Slider ref={sliderRef}>
         {upcomingAnime?.map((anime) => (
           <Card anime={anime} key={anime.mal_id} />
         ))}
       </Slider>
+
+      <MobileCard />
     </Row>
   )
 }
