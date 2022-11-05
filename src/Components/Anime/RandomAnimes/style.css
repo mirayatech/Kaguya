@@ -1,0 +1,33 @@
+.play__button {
+  top: 40%;
+  left: 50%;
+  position: absolute;
+  opacity: 0;
+  transition: all 0.2s ease;
+  color: white;
+  font-size: 2.2rem;
+  padding: 30px;
+  border: 1px solid white;
+  display: flex;
+  border-radius: 50%;
+}
+
+.play__button:hover {
+  background-color: rgba(255, 255, 255, 0.172);
+}
+
+@media screen and (max-width: 748px) {
+  .play__button {
+    top: 40%;
+    left: 47%;
+    position: absolute;
+    opacity: 1;
+    transition: all 0.2s ease;
+    color: white;
+    font-size: 1.5rem;
+    padding: 20px;
+    border: 1px solid white;
+    display: flex;
+    border-radius: 50%;
+  }
+}

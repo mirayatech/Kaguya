@@ -6,15 +6,29 @@ import { RiPlayFill } from 'react-icons/ri'
 import { HiHeart } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 import { BsDot } from 'react-icons/bs'
-import { Anime, AnimeTitle, AnimeWrapper, PrimaryWrapper, Image } from './style'
+import {
+  Anime,
+  AnimeTitle,
+  AnimeWrapper,
+  PrimaryWrapper,
+  SecondaryWrapper,
+  Image,
+  AnimeInfo,
+  AnimeRate,
+  AnimeInfoTitle,
+  Summary,
+} from './style'
 
 import './style.css'
 
 export function RandomAnimes() {
   const [anime, setAnime] = useState<AnimeType | null>(null)
 
+  const percentage = anime?.score
+  const score = Math.floor((percentage as number) * 10)
+
   const getRecentReviews = async () => {
-    const response = await fetch(RANDOM_ANIME)
+    const response = await fetch('https://api.jikan.moe/v4/anime/21659')
     const res = await response.json()
     setAnime(res.data)
   }
@@ -42,20 +56,25 @@ export function RandomAnimes() {
               </Link>
             </PrimaryWrapper>
 
-            <div>
-              <div>
-                <p>{anime.title}</p>
-                {anime.score && (
-                  <p>
-                    <FaRegSmile /> {anime.score}
-                  </p>
-                )}
-                {anime.favorites && (
-                  <p>
-                    <HiHeart /> {anime.favorites}
-                  </p>
-                )}
-
+            <SecondaryWrapper>
+              <AnimeInfo>
+                <AnimeInfoTitle>{anime.title}</AnimeInfoTitle>
+                <AnimeRate>
+                  {anime.score ? (
+                    <p>
+                      <FaRegSmile className="smile__svg" /> {score}&#37;
+                    </p>
+                  ) : (
+                    ''
+                  )}
+                  {anime.favorites ? (
+                    <p>
+                      <HiHeart className="heart__svg" /> {anime.favorites}
+                    </p>
+                  ) : (
+                    ' '
+                  )}
+                </AnimeRate>
                 <ul>
                   {anime.genres.map((genre) => (
                     <li key={genre.mal_id}>
@@ -63,10 +82,12 @@ export function RandomAnimes() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </AnimeInfo>
 
-              {/* <p>{anime.synopsis}</p> */}
-            </div>
+              <Summary>
+                {anime.synopsis && anime.synopsis.substr(0, 300) + '...'}
+              </Summary>
+            </SecondaryWrapper>
           </AnimeWrapper>
         )}
       </Anime>
