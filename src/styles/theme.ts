@@ -1,5 +1,6 @@
 export const theme = {
   White: '#fff',
+  AlmostBlack: '#0D0D0D',
   DrakGrey: '#1A1A1A',
   MediumGrey: '#262626',
   HoverDarkGrey: '#313131',
