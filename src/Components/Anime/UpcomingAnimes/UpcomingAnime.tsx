@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { IoChevronBackSharp, IoChevronForwardOutline } from 'react-icons/io5'
 import { AnimeType, UPCOMING_ANIME } from '../../../library'
 import { Card } from './Card'
+import { Buttons, Row, Slider } from './style'
 
 export function UpcomingAnime() {
   const [upcomingAnime, setUpcomingAnime] = useState<AnimeType[]>([])
@@ -32,20 +33,20 @@ export function UpcomingAnime() {
   }, [])
 
   return (
-    <div>
-      <div>
+    <Row>
+      <Buttons>
         <button onClick={slideLeft}>
           <IoChevronBackSharp />
         </button>
         <button onClick={slideRight}>
           <IoChevronForwardOutline />
         </button>
-      </div>
-      <div ref={sliderRef}>
+      </Buttons>
+      <Slider ref={sliderRef}>
         {upcomingAnime?.map((anime) => (
           <Card anime={anime} key={anime.mal_id} />
         ))}
-      </div>
-    </div>
+      </Slider>
+    </Row>
   )
 }
