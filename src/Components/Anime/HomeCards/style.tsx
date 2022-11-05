@@ -67,6 +67,7 @@ export const Row = styled.div`
   display: flex;
   padding: 0 15px;
   align-items: center;
+  transition: all 0.2s ease;
 
   :nth-of-type(odd) {
     background-color: ${theme.MediumGrey};
@@ -77,6 +78,10 @@ export const Row = styled.div`
 
   @media screen and (min-width: 900px) {
     height: 120px;
+  }
+
+  :hover {
+    background-color: ${theme.HoverDarkGrey};
   }
 `
 
@@ -102,6 +107,7 @@ export const RowTitle = styled.p`
   font-size: 1rem;
   font-weight: 600;
   padding: 10px 0;
+  color: ${theme.White};
 `
 
 export const RowInfo = styled.div`

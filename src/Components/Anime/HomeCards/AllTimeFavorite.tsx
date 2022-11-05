@@ -1,4 +1,5 @@
 import { BsDot } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 import { AnimeType } from '../../../library'
 import { Poster, Row, RowGenres, RowInfo, RowTitle, RowWrapper } from './style'
 
@@ -14,20 +15,21 @@ export function AllTimeFavorite({ anime }: AllTimeFavoriteProps) {
       </Poster>
 
       <RowWrapper>
-        <RowTitle>{anime.title}</RowTitle>
-        <RowInfo>
-          <span>{anime.type}</span> <BsDot className="dot__svg" />
-          <span>{anime.year}</span>
-          <BsDot className="dot__svg" />
-          <span>{anime.status}</span>
-        </RowInfo>
-        <RowGenres>
-          {anime.genres.map((genre) => (
-            <span key={genre.mal_id}>
-              {genre.name} <BsDot className="dot__svg" />
-            </span>
-          ))}
-        </RowGenres>
+        <Link to={`/animes/${anime.mal_id}`}>
+          <RowTitle>{anime.title}</RowTitle>
+          <RowInfo>
+            <span>{anime.type}</span>
+            <BsDot className="dot__svg" />
+            <span>{anime.status}</span>
+          </RowInfo>
+          <RowGenres>
+            {anime.genres.map((genre) => (
+              <span key={genre.mal_id}>
+                {genre.name} <BsDot className="dot__svg" />
+              </span>
+            ))}
+          </RowGenres>
+        </Link>
       </RowWrapper>
     </Row>
   )
