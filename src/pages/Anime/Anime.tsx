@@ -10,6 +10,7 @@ import {
   Button,
   AnimeInfo,
   AnimeShowcase,
+  Wide,
   Grid,
 } from './style'
 import { BsDot } from 'react-icons/bs'
@@ -60,92 +61,94 @@ export default function Anime() {
               }}
             />
 
-            <Section>
-              <Poster src={anime.images.jpg.large_image_url} alt="" />
-              <AnimeInfo>
-                <Button onClick={() => setIsTrailerOpen(true)}>
-                  <RiPlayFill className="play__svg" /> Watch Trailer
-                </Button>
-                <h1>{anime.title}</h1>
+            <Wide>
+              <Section>
+                <Poster src={anime.images.jpg.large_image_url} alt="" />
+                <AnimeInfo>
+                  <Button onClick={() => setIsTrailerOpen(true)}>
+                    <RiPlayFill className="play__svg" /> Watch Trailer
+                  </Button>
+                  <h1>{anime.title}</h1>
 
-                <ul>
-                  {anime.genres.map((genre) => (
-                    <li key={genre.mal_id}>
-                      {genre.name} <BsDot className="dot__svg" />
-                    </li>
-                  ))}
-                  {anime.themes.map((theme) => (
-                    <li key={theme.mal_id}>
-                      {theme.name}
-                      <BsDot className="dot__svg" />
-                    </li>
-                  ))}
-                  {anime.demographics.map((demo) => (
-                    <li key={demo.mal_id}>
-                      {demo.name}
-                      <BsDot className="dot__svg" />
-                    </li>
-                  ))}
-                </ul>
-                <p>{anime.synopsis}</p>
+                  <ul>
+                    {anime.genres.map((genre) => (
+                      <li key={genre.mal_id}>
+                        {genre.name} <BsDot className="dot__svg" />
+                      </li>
+                    ))}
+                    {anime.themes.map((theme) => (
+                      <li key={theme.mal_id}>
+                        {theme.name}
+                        <BsDot className="dot__svg" />
+                      </li>
+                    ))}
+                    {anime.demographics.map((demo) => (
+                      <li key={demo.mal_id}>
+                        {demo.name}
+                        <BsDot className="dot__svg" />
+                      </li>
+                    ))}
+                  </ul>
+                  <p>{anime.synopsis}</p>
 
-                <AnimeShowcase>
-                  <div>
-                    {anime.score ? (
-                      <>
-                        <p>Score</p>
-                        <p>{SCORE}&#37;</p>
-                      </>
-                    ) : (
-                      <>
-                        <p>Score</p>
-                        <p>No result yet</p>
-                      </>
-                    )}
-                  </div>
+                  <AnimeShowcase>
+                    <div>
+                      {anime.score ? (
+                        <>
+                          <p>Score</p>
+                          <p>{SCORE}&#37;</p>
+                        </>
+                      ) : (
+                        <>
+                          <p>Score</p>
+                          <p>No result yet</p>
+                        </>
+                      )}
+                    </div>
 
-                  <div>
-                    {anime.episodes ? (
-                      <>
-                        <p>Total episodes</p>
-                        <p>{anime.episodes} </p>
-                      </>
-                    ) : (
-                      <>
-                        <p>Total episodes</p>
-                        <p>No result yet</p>
-                      </>
-                    )}
-                  </div>
-                  <div>
-                    {anime.duration ? (
-                      <>
-                        <p>Duration</p>
-                        <p>{DURATION} minutes</p>
-                      </>
-                    ) : (
-                      <>
-                        <p>Duration</p>
-                        <p>No result yet</p>
-                      </>
-                    )}
-                  </div>
-                  <div>
-                    {anime.status ? (
-                      <>
-                        <p>Status</p>
-                        <p>{anime.status}</p>
-                      </>
-                    ) : (
-                      <>
-                        <p>Status</p>
-                        <p>No result yet</p>
-                      </>
-                    )}
-                  </div>
-                </AnimeShowcase>
-              </AnimeInfo>
-            </Section>
+                    <div>
+                      {anime.episodes ? (
+                        <>
+                          <p>Total episodes</p>
+                          <p>{anime.episodes} </p>
+                        </>
+                      ) : (
+                        <>
+                          <p>Total episodes</p>
+                          <p>No result yet</p>
+                        </>
+                      )}
+                    </div>
+                    <div>
+                      {anime.duration ? (
+                        <>
+                          <p>Duration</p>
+                          <p>{DURATION} minutes</p>
+                        </>
+                      ) : (
+                        <>
+                          <p>Duration</p>
+                          <p>No result yet</p>
+                        </>
+                      )}
+                    </div>
+                    <div>
+                      {anime.status ? (
+                        <>
+                          <p>Status</p>
+                          <p>{anime.status}</p>
+                        </>
+                      ) : (
+                        <>
+                          <p>Status</p>
+                          <p>No result yet</p>
+                        </>
+                      )}
+                    </div>
+                  </AnimeShowcase>
+                </AnimeInfo>
+              </Section>
+            </Wide>
             <Grid>
               <SideBar anime={anime} />
             </Grid>

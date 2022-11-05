@@ -7,6 +7,7 @@ export const Banner = styled.div`
   display: flex;
   position: relative;
   align-items: center;
+  transition: 0.3s ease;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,11 +21,14 @@ export const Banner = styled.div`
   }
 `
 
+export const Wide = styled.div`
+  background-color: ${theme.AlmostBlack};
+`
 export const Section = styled.div`
   margin: auto;
   display: flex;
-  padding: 15px 30px;
   max-width: 2200px;
+  padding: 15px 30px;
   background-color: ${theme.AlmostBlack};
 `
 
@@ -32,31 +36,26 @@ export const Poster = styled.img`
   width: 20rem;
   height: 25rem;
   transform: translateY(-80px);
-
-  /* @media screen and (max-width: 1500px) {
-    width: 11rem;
-    height: 18rem;
-  } */
 `
 
 export const Button = styled.button`
-  cursor: pointer;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-  color: ${theme.White};
-  background-color: ${theme.Primary};
-  padding: 10px;
   width: 150px;
   border: none;
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
   border-radius: 4px;
-  transform: translateY(-70px);
+  align-items: center;
+  color: ${theme.White};
   transition: all 0.2s ease;
+  transform: translateY(-70px);
+  background-color: ${theme.Primary};
 
   .play__svg {
-    font-size: calc(20 / 16 * 1rem);
     margin-right: 5px;
+    font-size: calc(20 / 16 * 1rem);
   }
 
   :hover {
@@ -75,8 +74,8 @@ export const AnimeInfo = styled.div`
 
   li {
     display: flex;
-    align-items: center;
     font-size: 1rem;
+    align-items: center;
   }
 
   li .dot__svg {
@@ -88,10 +87,10 @@ export const AnimeInfo = styled.div`
   }
 
   p:first-of-type {
-    text-overflow: ellipsis;
-    overflow: hidden;
     margin-top: 5px;
+    overflow: hidden;
     color: ${theme.Grey};
+    text-overflow: ellipsis;
   }
 `
 
@@ -125,7 +124,7 @@ export const AnimeShowcase = styled.div`
 export const Grid = styled.div`
   margin: auto;
   padding: 30px;
-  max-width: 2200px;
   display: grid;
+  max-width: 2200px;
   grid-template-columns: 200px auto;
 `
