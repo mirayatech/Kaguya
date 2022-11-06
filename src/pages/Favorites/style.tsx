@@ -12,7 +12,7 @@ export const InfoWrapper = styled.div`
 `
 
 export const InfoImage = styled.img`
-  width: 300px;
+  width: 400px;
 
   @media screen and (max-width: 600px) {
     width: 250px;
