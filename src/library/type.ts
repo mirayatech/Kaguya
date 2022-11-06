@@ -56,9 +56,16 @@ export type AnimeType = {
 }
 
 export type CharacterType = {
-  images: [jpg: { image_url: string }]
-  mal_id: number
-  name: string
-  favorites: number
+  character: {
+    images: {
+      jpg: {
+        image_url: string
+      }
+    }
+
+    name: string
+    mal_id: number
+  }
+
   role: string
 }
