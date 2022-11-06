@@ -14,7 +14,7 @@ import {
   Grid,
 } from './style'
 import { BsDot } from 'react-icons/bs'
-import { SideBar, Trailer } from '../../Components'
+import { Characters, SideBar, Trailer } from '../../Components'
 import ClickAwayListener from 'react-click-away-listener'
 
 export default function Anime() {
@@ -149,6 +149,10 @@ export default function Anime() {
             </Wide>
             <Grid>
               <SideBar anime={anime} />
+
+              <div>
+                <Characters />
+              </div>
             </Grid>
           </div>
         </>
