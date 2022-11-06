@@ -11,7 +11,6 @@ export const Banner = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: 0.3s ease;
 
   :hover .play__link {
     opacity: 1;
@@ -39,6 +38,8 @@ export const Poster = styled.img`
 `
 
 export const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
   transform: translateY(-70px);
 `
 
@@ -47,6 +48,8 @@ export const Button = styled.button`
   border: none;
   display: flex;
   padding: 10px;
+  margin-right: 30px;
+  margin-bottom: 10px;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
@@ -70,7 +73,7 @@ export const AnimeInfo = styled.div`
   padding: 0 30px;
 
   h1 {
-    margin-top: -35px;
+    margin-top: -60px;
     padding-bottom: 15px;
     font-size: calc(30 / 16 * 1rem);
   }
