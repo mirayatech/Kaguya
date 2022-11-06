@@ -42,8 +42,6 @@ export default function Anime() {
   const ANIME_DURATION = anime?.duration
   const DURATION = ANIME_DURATION?.split(' ').slice(0, 1).join(' ')
 
-  // 👇️ First 2 words
-
   return (
     <>
       {anime ? (

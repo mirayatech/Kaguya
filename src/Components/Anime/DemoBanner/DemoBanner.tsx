@@ -40,30 +40,35 @@ export function DemoBanner() {
       <Container>
         <Wrapper>
           <MiniWrapper>
-            <Title>Demon Slayer: Kimetsu no Yaiba</Title>
+            <Title>
+              Seishun Buta Yarou wa Yumemiru Shoujo no Yume wo Minai
+            </Title>
             <Info>
               <Rate>
-                <FaRegSmile className="smile__svg" /> 98&#37;
+                <FaRegSmile className="smile__svg" /> 82&#37;
               </Rate>
               <Rate>
-                <HiHeart className="heart__svg" /> 32416
+                <HiHeart className="heart__svg" /> 43275
               </Rate>
 
               <ul>
                 <li>
-                  Action <BsDot className="dot" />
+                  Drama <BsDot className="dot" />
                 </li>
                 <li>
-                  Fantasy <BsDot className="dot" />
+                  Romance <BsDot className="dot" />
                 </li>
 
-                <li>Shounen</li>
+                <li>
+                  Supernatural <BsDot className="dot" />
+                </li>
+                <li>School</li>
               </ul>
             </Info>
-            <Link to={`/animes/${53323}`} aria-label="Go to Anime">
+            <Link to={`/animes/${37450}`} aria-label="Go to Anime">
               <Summary>
                 {truncateString(
-                  `A family is attacked by demons and only two members survive - Tanjiro and his sister Nezuko, who is turning into a demon slowly. Tanjiro sets out to become a demon slayer to avenge his family and cure his sister.`,
+                  `Six months ago, Sakuta Azusagawa had a chance encounter with a bunny girl in a library. Ever since then, he's been blissfully happy with his girlfriend: Mai Sakurajima, that same bunny girl. However, the reappearance of his mysterious first crush, the now-adult Shouko Makinohara, adds a new complication to his relationship with Mai. To make matters worse, he then encounters a middle school Shouko in the hospital, suffering from a grave illness. Mysteriously, his old scars begin throbbing whenever he's near her. With Shouko's bizarre situation somehow revolving around him, Sakuta will need to come to terms with his own conflicting feelings, for better or worse. With a girl's life in his hands, just what can he do? `,
                   250
                 )}
               </Summary>
@@ -71,7 +76,7 @@ export function DemoBanner() {
           </MiniWrapper>
 
           <Link
-            to={`/animes/${53323}`}
+            to={`/animes/${37450}`}
             aria-label="Go to Anime"
             className="play__link"
           >
