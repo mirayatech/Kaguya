@@ -54,3 +54,11 @@ export type AnimeType = {
     youtube_id: string
   }
 }
+
+export type CharacterType = {
+  images: [jpg: { image_url: string }]
+  mal_id: number
+  name: string
+  favorites: number
+  role: string
+}
