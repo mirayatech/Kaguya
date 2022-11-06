@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { theme } from '../../../styles/theme'
 
 export const Sidebar = styled.div`
+  max-height: 800px;
   display: inline-block;
   padding: 15px;
   border-radius: 8px;

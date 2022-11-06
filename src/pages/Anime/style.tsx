@@ -128,3 +128,16 @@ export const Grid = styled.div`
   max-width: 2200px;
   grid-template-columns: 200px auto;
 `
+
+export const CharacterGrid = styled.div`
+  display: grid;
+  gap: 0 2rem;
+  grid-template-columns: auto auto;
+`
+
+export const CharacterWrapper = styled.div`
+  margin: 0 30px;
+  h2 {
+    font-size: calc(24 / 16 * 1rem);
+  }
+`

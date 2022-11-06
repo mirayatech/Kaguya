@@ -12,6 +12,8 @@ import {
   AnimeShowcase,
   Wide,
   Grid,
+  CharacterGrid,
+  CharacterWrapper,
 } from './style'
 import { BsDot } from 'react-icons/bs'
 import { Characters, SideBar, Trailer } from '../../Components'
@@ -147,12 +149,15 @@ export default function Anime() {
                 </AnimeInfo>
               </Section>
             </Wide>
+
             <Grid>
               <SideBar anime={anime} />
-
-              <div>
-                <Characters />
-              </div>
+              <CharacterWrapper>
+                <h2>Characters</h2>
+                <CharacterGrid>
+                  <Characters />
+                </CharacterGrid>
+              </CharacterWrapper>
             </Grid>
           </div>
         </>

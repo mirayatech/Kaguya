@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { CharacterType } from '../../../library'
+import { Card, NameAndRole } from './style'
 
 export function Characters() {
   const [characters, setCharacters] = useState<CharacterType[]>([])
@@ -24,14 +25,14 @@ export function Characters() {
   return (
     <>
       {characters.map((character, index) => (
-        <div key={index}>
+        <Card key={index}>
           <img src={character.character.images.jpg.image_url} alt="" />
 
-          <div>
+          <NameAndRole>
             <p>{character.character.name}</p>
             <p>{character.role}</p>
-          </div>
-        </div>
+          </NameAndRole>
+        </Card>
       ))}
     </>
   )
