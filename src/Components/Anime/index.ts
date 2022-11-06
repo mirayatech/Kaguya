@@ -8,3 +8,5 @@ export * from './UpcomingAnimes/UpcomingAnime'
 export * from './Trailer/Trailer'
 export * from './SideBar/SideBar'
 export * from './Characters/Characters'
+
+export * from './Buttons/Buttons'

@@ -38,6 +38,10 @@ export const Poster = styled.img`
   transform: translateY(-80px);
 `
 
+export const ButtonWrapper = styled.div`
+  transform: translateY(-70px);
+`
+
 export const Button = styled.button`
   width: 150px;
   border: none;
@@ -50,7 +54,6 @@ export const Button = styled.button`
   align-items: center;
   color: ${theme.White};
   transition: all 0.2s ease;
-  transform: translateY(-70px);
   background-color: ${theme.Primary};
 
   .play__svg {

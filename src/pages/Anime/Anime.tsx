@@ -14,9 +14,10 @@ import {
   Grid,
   CharacterGrid,
   CharacterWrapper,
+  ButtonWrapper,
 } from './style'
 import { BsDot } from 'react-icons/bs'
-import { Characters, SideBar, Trailer } from '../../Components'
+import { Buttons, Characters, SideBar, Trailer } from '../../Components'
 import ClickAwayListener from 'react-click-away-listener'
 
 export default function Anime() {
@@ -65,9 +66,12 @@ export default function Anime() {
               <Section>
                 <Poster src={anime.images.jpg.large_image_url} alt="" />
                 <AnimeInfo>
-                  <Button onClick={() => setIsTrailerOpen(true)}>
-                    <RiPlayFill className="play__svg" /> Watch Trailer
-                  </Button>
+                  <ButtonWrapper>
+                    <Button onClick={() => setIsTrailerOpen(true)}>
+                      <RiPlayFill className="play__svg" /> Watch Trailer
+                    </Button>
+                    <Buttons anime={anime} />
+                  </ButtonWrapper>
                   <h1>{anime.title}</h1>
 
                   <ul>
