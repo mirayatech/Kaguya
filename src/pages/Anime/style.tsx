@@ -190,7 +190,7 @@ export const CharacterGrid = styled.div`
 `
 
 export const CharacterWrapper = styled.div`
-  margin: 0 30px;
+  margin: 15px 30px;
   h2 {
     font-size: calc(24 / 16 * 1rem);
   }
