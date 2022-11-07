@@ -1,8 +1,14 @@
-import { doc, DocumentReference, onSnapshot } from 'firebase/firestore'
+import {
+  collection,
+  CollectionReference,
+  doc,
+  DocumentReference,
+  onSnapshot,
+} from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../context'
-import { firebaseDb, UserType } from '../../library'
+import { BookmarkType, firebaseDb, UserType } from '../../library'
 import {
   FavoriteAnimes,
   Animes,
@@ -12,16 +18,17 @@ import {
 
 export function Bookmarks() {
   const [isUser, setIsUser] = useState<UserType | null>(null)
+  const [bookmarks, setBookmarks] = useState<BookmarkType[]>([])
   const { user } = useAuthContext()
 
-  const avatarDocumentRef = doc(
+  const userDocumentRef = doc(
     firebaseDb,
     `users/${user?.uid}`
   ) as DocumentReference<UserType>
 
   useEffect(
     () =>
-      onSnapshot(avatarDocumentRef, (doc) => {
+      onSnapshot(userDocumentRef, (doc) => {
         const docData = doc.data()
         if (docData) {
           setIsUser(docData)
@@ -31,6 +38,22 @@ export function Bookmarks() {
     [user?.uid]
   )
 
+  const bookmarkCollectionRef = collection(
+    firebaseDb,
+    `users/${user?.uid}/bookmarks`
+  ) as CollectionReference<BookmarkType>
+  useEffect(() => {
+    const getProfile = () => {
+      onSnapshot(bookmarkCollectionRef, (snapshot) => {
+        setBookmarks(
+          snapshot.docs.map((doc) => ({ ...doc.data(), profileId: doc.id }))
+        )
+      })
+    }
+
+    getProfile()
+  }, [])
+
   return (
     <>
       {isUser && (
@@ -38,19 +61,20 @@ export function Bookmarks() {
           <TitleWrapper>
             <h1> {isUser.name}'s saved animes</h1>
 
-            <h2>Total: {isUser.bookmark.length}</h2>
+            <h2>Total: {bookmarks.length}</h2>
           </TitleWrapper>
 
           <Animes>
-            {isUser.bookmark.map((bookmark) => (
-              <Link to={`/animes/${bookmark.id}`}>
-                <div key={bookmark.id}>
-                  <Poster>
-                    <img src={bookmark.poster} alt="" />
-                  </Poster>
+            {bookmarks.map((bookmark) => (
+              <div key={bookmark.id}>
+                <Poster>
+                  <img src={bookmark.poster} alt="" />
+                </Poster>
+
+                <Link to={`/animes/${bookmark.id}`}>
                   <h3>{bookmark.title}</h3>
-                </div>
-              </Link>
+                </Link>
+              </div>
             ))}
           </Animes>
         </FavoriteAnimes>
