@@ -10,14 +10,24 @@ import {
   Button,
   AnimeInfo,
   AnimeShowcase,
+  MobileAnimeShowcase,
   Wide,
   Grid,
   CharacterGrid,
   CharacterWrapper,
   ButtonWrapper,
+  Summary,
+  MobileWrapper,
+  MobileTrailerButton,
 } from './style'
 import { BsDot } from 'react-icons/bs'
-import { Buttons, Characters, SideBar, Trailer } from '../../Components'
+import {
+  Buttons,
+  Characters,
+  MobileButtons,
+  SideBar,
+  Trailer,
+} from '../../Components'
 import ClickAwayListener from 'react-click-away-listener'
 
 export default function Anime() {
@@ -93,7 +103,7 @@ export default function Anime() {
                       </li>
                     ))}
                   </ul>
-                  <p>{anime.synopsis}</p>
+                  <Summary>{anime.synopsis}</Summary>
 
                   <AnimeShowcase>
                     <div>
@@ -109,7 +119,6 @@ export default function Anime() {
                         </>
                       )}
                     </div>
-
                     <div>
                       {anime.episodes ? (
                         <>
@@ -153,6 +162,69 @@ export default function Anime() {
                 </AnimeInfo>
               </Section>
             </Wide>
+            <MobileWrapper>
+              <p>{anime.synopsis}</p>
+
+              <MobileTrailerButton onClick={() => setIsTrailerOpen(true)}>
+                <RiPlayFill className="play__svg" /> Watch Trailer
+              </MobileTrailerButton>
+              <MobileButtons anime={anime} />
+            </MobileWrapper>
+
+            <MobileAnimeShowcase>
+              <div>
+                {anime.score ? (
+                  <>
+                    <p>Score</p>
+                    <p>{SCORE}&#37;</p>
+                  </>
+                ) : (
+                  <>
+                    <p>Score</p>
+                    <p>No result yet</p>
+                  </>
+                )}
+              </div>
+              <div>
+                {anime.episodes ? (
+                  <>
+                    <p>Total episodes</p>
+                    <p>{anime.episodes} </p>
+                  </>
+                ) : (
+                  <>
+                    <p>Total episodes</p>
+                    <p>No result yet</p>
+                  </>
+                )}
+              </div>
+              <div>
+                {anime.duration ? (
+                  <>
+                    <p>Duration</p>
+                    <p>{DURATION} minutes</p>
+                  </>
+                ) : (
+                  <>
+                    <p>Duration</p>
+                    <p>No result yet</p>
+                  </>
+                )}
+              </div>
+              <div>
+                {anime.status ? (
+                  <>
+                    <p>Status</p>
+                    <p>{anime.status}</p>
+                  </>
+                ) : (
+                  <>
+                    <p>Status</p>
+                    <p>No result yet</p>
+                  </>
+                )}
+              </div>
+            </MobileAnimeShowcase>
 
             <Grid>
               <SideBar anime={anime} />
