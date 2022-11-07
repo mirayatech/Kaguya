@@ -1,5 +1,6 @@
 export * from './Navbar/Navbar'
 export * from './Spinner/Suspense/SuspenseSpinner'
+export * from './Spinner/Loading/LoadingSpinner'
 export * from './Footer/Footer'
 export * from './BookmarkModal/BookmarkModal'
 export * from './Anime'

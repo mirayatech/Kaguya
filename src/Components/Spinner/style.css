@@ -11,7 +11,8 @@
   position: fixed;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: #00000003;
+  backdrop-filter: blur(5px);
 }
 
 .spin {

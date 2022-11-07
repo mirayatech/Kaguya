@@ -39,7 +39,6 @@ export default function Anime() {
   const [isTrailerOpen, setIsTrailerOpen] = useState(false)
   const { isBookmarkOpen } = useBookmarkContext()
   const { isFavoriteOpen } = useFavoriteContext()
-
   const { id } = useParams()
 
   const URL = `https://api.jikan.moe/v4/anime/${id}`
@@ -250,4 +249,7 @@ export default function Anime() {
       {isFavoriteOpen && <FavoriteModal />}
     </>
   )
+}
+function useLoadingStore(): { setStatus: any } {
+  throw new Error('Function not implemented.')
 }

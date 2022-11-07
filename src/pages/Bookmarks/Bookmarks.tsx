@@ -45,6 +45,7 @@ export function Bookmarks() {
     firebaseDb,
     `users/${user?.uid}/bookmarks`
   ) as CollectionReference<BookmarkType>
+
   useEffect(() => {
     const getProfile = () => {
       onSnapshot(bookmarkCollectionRef, (snapshot) => {
