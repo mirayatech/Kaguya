@@ -1,4 +1,5 @@
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore'
+import toast from 'react-hot-toast'
 import { FaBookmark } from 'react-icons/fa'
 import { ImStarFull } from 'react-icons/im'
 import {
@@ -29,6 +30,15 @@ export function Buttons({ anime }: ButtonsProps) {
           poster: anime.images.jpg.large_image_url,
         }),
       })
+
+      toast('Added to bookmarks.', {
+        icon: '👻',
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      })
     } else {
       setIsBookmarkOpen(true)
     }
@@ -42,6 +52,14 @@ export function Buttons({ anime }: ButtonsProps) {
           title: anime.title,
           poster: anime.images.jpg.large_image_url,
         }),
+      })
+      toast('Added to favorites.', {
+        icon: '⭐',
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
       })
     } else {
       setIsFavoriteOpen(true)
