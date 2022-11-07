@@ -25,7 +25,6 @@ export function UpcomingAnime() {
   const getUpcomingAnime = async () => {
     const response = await fetch(UPCOMING_ANIME)
     const data = await response.json()
-    console.log(data.data)
     setUpcomingAnime(data.data)
   }
 

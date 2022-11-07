@@ -14,7 +14,6 @@ export function Characters() {
     )
     const data = await response.json()
 
-    console.log(data.data)
     setCharacters(data.data)
   }
 

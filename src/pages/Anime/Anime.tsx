@@ -47,7 +47,6 @@ export default function Anime() {
   const getAnimeInformation = async () => {
     const response = await fetch(URL)
     const data = await response.json()
-    console.log(data.data)
     setAnime(data.data)
   }
 
