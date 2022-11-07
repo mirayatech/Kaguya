@@ -21,5 +21,23 @@ export const Sidebar = styled.div`
 
   div:not(:last-child) {
     margin-bottom: 30px;
+    @media screen and (max-width: 848px) {
+      margin-bottom: 0;
+    }
+  }
+
+  div {
+    @media screen and (max-width: 848px) {
+      margin: 0 30px;
+    }
+  }
+
+  @media screen and (max-width: 848px) {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 15px 0;
+    width: 100%;
+    overflow-x: scroll;
   }
 `
