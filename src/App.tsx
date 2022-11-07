@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { SuspenseSpinner, Navbar } from './Components'
+import { SuspenseSpinner, Navbar, LoadingSpinner } from './Components'
 import {
   AuthContextProvider,
   BookmarkContextProvider,
@@ -23,6 +23,7 @@ export function App() {
         <FavoriteContextProvider>
           <Toaster position="top-center" />
           <Navbar />
+          <LoadingSpinner />
           <Routes>
             <Route
               path="/"
