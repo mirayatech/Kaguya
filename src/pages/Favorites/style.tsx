@@ -53,6 +53,14 @@ export const FavoriteAnimes = styled.div`
   max-width: 2200px;
   justify-content: center;
   flex-direction: column;
+`
+
+export const TitleWrapper = styled.div`
+  display: flex;
+  padding: 30px 15px;
+  padding-top: 100px;
+  align-items: center;
+  justify-content: space-between;
 
   h1 {
     font-weight: 600;
@@ -63,14 +71,14 @@ export const FavoriteAnimes = styled.div`
     font-weight: 600;
     font-size: calc(26 / 16 * 1rem);
   }
-`
 
-export const TitleWrapper = styled.div`
-  display: flex;
-  padding: 30px 15px;
-  padding-top: 100px;
-  align-items: center;
-  justify-content: space-between;
+  @media screen and (max-width: 548px) {
+    line-height: 2;
+    padding-top: 60px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 `
 
 export const Animes = styled.div`
