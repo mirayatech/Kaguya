@@ -24,8 +24,6 @@ export const useCreateUserWithEmailAndPassword = () => {
         name: '',
         email: firebaseAuth.currentUser?.email,
         avatarUrl: '',
-        bookmark: [],
-        favorites: [],
       })
     } catch (error) {
       setSignUpError(error as FirebaseError)
