@@ -25,15 +25,20 @@ import {
   Buttons,
   Characters,
   Footer,
+  BookmarkModal,
   MobileButtons,
   SideBar,
   Trailer,
+  FavoriteModal,
 } from '../../Components'
 import ClickAwayListener from 'react-click-away-listener'
+import { useBookmarkContext, useFavoriteContext } from '../../context'
 
 export default function Anime() {
   const [anime, setAnime] = useState<AnimeType | null>(null)
   const [isTrailerOpen, setIsTrailerOpen] = useState(false)
+  const { isBookmarkOpen } = useBookmarkContext()
+  const { isFavoriteOpen } = useFavoriteContext()
 
   const { id } = useParams()
 
@@ -242,6 +247,8 @@ export default function Anime() {
         ''
       )}
       <Footer />
+      {isBookmarkOpen && <BookmarkModal />}
+      {isFavoriteOpen && <FavoriteModal />}
     </>
   )
 }

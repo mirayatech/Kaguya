@@ -1,4 +1,6 @@
 export * from './Navbar/Navbar'
 export * from './Spinner/Suspense/SuspenseSpinner'
 export * from './Footer/Footer'
+export * from './BookmarkModal/BookmarkModal'
 export * from './Anime'
+export * from './FavoriteModal/FavoriteModal'
