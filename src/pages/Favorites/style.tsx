@@ -76,8 +76,8 @@ export const TitleWrapper = styled.div`
     line-height: 2;
     padding-top: 60px;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
   }
 `
 
@@ -97,6 +97,16 @@ export const Animes = styled.div`
     padding: 5px 10px;
     font-size: calc(18 / 16 * 1rem);
     transition: all 0.3s ease;
+  }
+
+  @media screen and (max-width: 548px) {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    h3 {
+      margin-bottom: 20px;
+    }
   }
 `
 
