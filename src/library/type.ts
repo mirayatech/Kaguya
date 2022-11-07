@@ -83,3 +83,15 @@ export type UserType = {
     }
   ]
 }
+
+export type FavoriteType = {
+  id: number
+  poster: string
+  title: string
+}
+
+export type BookmarkType = {
+  id: number
+  poster: string
+  title: string
+}
