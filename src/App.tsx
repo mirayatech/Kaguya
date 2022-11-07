@@ -1,7 +1,11 @@
 import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { SuspenseSpinner, Navbar } from './Components'
-import { AuthContextProvider } from './context'
+import {
+  AuthContextProvider,
+  BookmarkContextProvider,
+  FavoriteContextProvider,
+} from './context'
 import { Toaster } from 'react-hot-toast'
 
 export function App() {
@@ -15,69 +19,73 @@ export function App() {
 
   return (
     <AuthContextProvider>
-      <Toaster position="top-center" />
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Suspense fallback={<SuspenseSpinner />}>
-              <HomeAnime />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/signin"
-          element={
-            <Suspense fallback={<SuspenseSpinner />}>
-              <SignIn />
-            </Suspense>
-          }
-        />
+      <BookmarkContextProvider>
+        <FavoriteContextProvider>
+          <Toaster position="top-center" />
+          <Navbar />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<SuspenseSpinner />}>
+                  <HomeAnime />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/signin"
+              element={
+                <Suspense fallback={<SuspenseSpinner />}>
+                  <SignIn />
+                </Suspense>
+              }
+            />
 
-        <Route
-          path="/create/account"
-          element={
-            <Suspense fallback={<SuspenseSpinner />}>
-              <CreateAccount />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/signup"
-          element={
-            <Suspense fallback={<SuspenseSpinner />}>
-              <SignUp />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/favorites"
-          element={
-            <Suspense fallback={<SuspenseSpinner />}>
-              <Favorite />
-            </Suspense>
-          }
-        />
+            <Route
+              path="/create/account"
+              element={
+                <Suspense fallback={<SuspenseSpinner />}>
+                  <CreateAccount />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                <Suspense fallback={<SuspenseSpinner />}>
+                  <SignUp />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/favorites"
+              element={
+                <Suspense fallback={<SuspenseSpinner />}>
+                  <Favorite />
+                </Suspense>
+              }
+            />
 
-        <Route
-          path="/bookmarks"
-          element={
-            <Suspense fallback={<SuspenseSpinner />}>
-              <Bookmark />
-            </Suspense>
-          }
-        />
+            <Route
+              path="/bookmarks"
+              element={
+                <Suspense fallback={<SuspenseSpinner />}>
+                  <Bookmark />
+                </Suspense>
+              }
+            />
 
-        <Route
-          path="/animes/:id"
-          element={
-            <Suspense fallback={<SuspenseSpinner />}>
-              <Anime />
-            </Suspense>
-          }
-        />
-      </Routes>
+            <Route
+              path="/animes/:id"
+              element={
+                <Suspense fallback={<SuspenseSpinner />}>
+                  <Anime />
+                </Suspense>
+              }
+            />
+          </Routes>
+        </FavoriteContextProvider>
+      </BookmarkContextProvider>
     </AuthContextProvider>
   )
 }
