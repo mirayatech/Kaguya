@@ -77,14 +77,11 @@ export const Animes = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, 15rem);
 
-  div {
+  a {
+    color: ${theme.White};
     :hover {
       color: ${theme.Red};
     }
-  }
-
-  a {
-    color: ${theme.White};
   }
 
   h3 {
@@ -102,6 +99,7 @@ export const Poster = styled.div`
   flex-shrink: 0;
   margin: 0 10px;
   cursor: pointer;
+  position: relative;
   flex-direction: column;
   transition: all 0.3s ease;
 
@@ -109,5 +107,25 @@ export const Poster = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  button {
+    top: 10px;
+    right: 10px;
+    padding: 6px;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    font-size: 1.2rem;
+    position: absolute;
+    border-radius: 4px;
+    border: 1px solid ${theme.Red};
+    color: ${theme.White};
+    transition: all 0.3s ease;
+    background-color: ${theme.Primary};
+
+    :hover {
+      background-color: ${theme.Secondary};
+    }
   }
 `

@@ -88,10 +88,12 @@ export type FavoriteType = {
   id: number
   poster: string
   title: string
+  favoriteId: string
 }
 
 export type BookmarkType = {
   id: number
   poster: string
   title: string
+  bookmarkId: string
 }

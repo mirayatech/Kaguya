@@ -1,6 +1,7 @@
 import {
   collection,
   CollectionReference,
+  deleteDoc,
   doc,
   DocumentReference,
   onSnapshot,
@@ -10,6 +11,8 @@ import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../context'
 import { FavoriteType, firebaseDb, UserType } from '../../library'
 import { FavoriteAnimes, Animes, Poster, TitleWrapper } from './style'
+import { FiTrash2 } from 'react-icons/fi'
+import toast from 'react-hot-toast'
 
 export function Favorites() {
   const [isUser, setIsUser] = useState<UserType | null>(null)
@@ -41,13 +44,30 @@ export function Favorites() {
     const getProfile = () => {
       onSnapshot(favoriteCollectionRef, (snapshot) => {
         setFavorites(
-          snapshot.docs.map((doc) => ({ ...doc.data(), profileId: doc.id }))
+          snapshot.docs.map((doc) => ({ ...doc.data(), favoriteId: doc.id }))
         )
       })
     }
 
     getProfile()
   }, [])
+
+  const removeFromFavorite = (id: string) => {
+    const favoriteAnimeDoc = doc(
+      firebaseDb,
+      `users/${user?.uid}/favorites/${id}`
+    )
+    deleteDoc(favoriteAnimeDoc)
+
+    toast('Removed from favorites.', {
+      icon: '✅',
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    })
+  }
 
   return (
     <>
@@ -56,7 +76,7 @@ export function Favorites() {
           <TitleWrapper>
             <h1> {isUser.name}'s favorite animes</h1>
 
-            <h2>Total: {isUser.favorites.length}</h2>
+            <h2>Total: {favorites.length}</h2>
           </TitleWrapper>
 
           <Animes>
@@ -64,6 +84,11 @@ export function Favorites() {
               <div key={favorite.id}>
                 <Poster>
                   <img src={favorite.poster} alt="" />
+                  <button
+                    onClick={() => removeFromFavorite(favorite.favoriteId)}
+                  >
+                    <FiTrash2 />
+                  </button>
                 </Poster>
 
                 <Link to={`/animes/${favorite.id}`}>

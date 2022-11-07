@@ -1,11 +1,14 @@
 import {
   collection,
   CollectionReference,
+  deleteDoc,
   doc,
   DocumentReference,
   onSnapshot,
 } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
+import { FiTrash2 } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../context'
 import { BookmarkType, firebaseDb, UserType } from '../../library'
@@ -46,13 +49,30 @@ export function Bookmarks() {
     const getProfile = () => {
       onSnapshot(bookmarkCollectionRef, (snapshot) => {
         setBookmarks(
-          snapshot.docs.map((doc) => ({ ...doc.data(), profileId: doc.id }))
+          snapshot.docs.map((doc) => ({ ...doc.data(), bookmarkId: doc.id }))
         )
       })
     }
 
     getProfile()
   }, [])
+
+  const removeFromBookmark = (id: string) => {
+    const favoriteAnimeDoc = doc(
+      firebaseDb,
+      `users/${user?.uid}/bookmarks/${id}`
+    )
+    deleteDoc(favoriteAnimeDoc)
+
+    toast('Removed from bookmarks.', {
+      icon: '✅',
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    })
+  }
 
   return (
     <>
@@ -69,8 +89,12 @@ export function Bookmarks() {
               <div key={bookmark.id}>
                 <Poster>
                   <img src={bookmark.poster} alt="" />
+                  <button
+                    onClick={() => removeFromBookmark(bookmark.bookmarkId)}
+                  >
+                    <FiTrash2 />
+                  </button>
                 </Poster>
-
                 <Link to={`/animes/${bookmark.id}`}>
                   <h3>{bookmark.title}</h3>
                 </Link>
