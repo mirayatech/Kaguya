@@ -92,15 +92,15 @@ export function Menu() {
                 <Link className="auth-link top" to="/animes">
                   Anime
                 </Link>
-                <Link className="auth-link" to="/mangas">
-                  Manga
-                </Link>{' '}
+                <br />
                 <Link className="auth-link" to="/favorites">
                   Favorite
                 </Link>{' '}
+                <br />
                 <Link className="auth-link" to="/bookmarks">
                   Bookmark
                 </Link>{' '}
+                <br />
                 <LogOut onClick={handleLogOut}>Sign out</LogOut>
               </HamburgerMenu>
             </Wrapper>

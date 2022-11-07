@@ -27,17 +27,13 @@ export function Navbar() {
     <Nav className={navbar ? 'active' : 'not-active'}>
       <NavContainer>
         <Wrapper>
-          <Link to="/" aria-label="home">
+          <Link to="/" aria-label="home" className="home__link">
             <Image src={Logo} alt="" />
           </Link>
 
           <Link className="link right" to="/">
             Anime
           </Link>
-          <Link className="link left" to="/mangas">
-            Manga
-          </Link>
-
           <Link className="link right" to="/favorites">
             Favorite
           </Link>

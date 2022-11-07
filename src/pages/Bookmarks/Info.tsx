@@ -9,7 +9,7 @@ export function Info() {
       <InfoImage src={INFO_IMG} alt="" />
       <InfoText>
         In order to see your bookmarks, you need to be authenticated.
-        <Link to="/signin"> Sign in</Link> to see your bookmarked Anime/Mangas.
+        <Link to="/signin"> Sign in</Link> to see your bookmarked Anime.
       </InfoText>
     </InfoWrapper>
   )

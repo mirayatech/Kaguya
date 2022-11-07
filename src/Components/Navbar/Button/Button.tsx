@@ -43,9 +43,6 @@ export function Button() {
             <Link to="/" onClick={() => setIsOpen(false)}>
               Anime
             </Link>
-            <Link to="/mangas" onClick={() => setIsOpen(false)}>
-              Manga
-            </Link>
             <Link to="/favorites" onClick={() => setIsOpen(false)}>
               Favorite
             </Link>

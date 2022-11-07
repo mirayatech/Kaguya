@@ -5,13 +5,6 @@ export const UPCOMING_ANIME = 'https://api.jikan.moe/v4/seasons/upcoming'
 export const RECOMMENDATION_ANIME =
   'https://api.jikan.moe/v4/recommendations/anime'
 
-export const TOP_MANGA_URL = 'https://api.jikan.moe/v4/top/manga'
-export const RANDOM_MANGA = 'https://api.jikan.moe/v4/random/manga'
-export const MANGA_GENRES_URL = 'https://api.jikan.moe/v4/genres/manga'
-export const UPCOMING_MANGA = 'https://api.jikan.moe/v4/reviews/manga'
-export const RECOMMENDATION_MANGA =
-  'https://api.jikan.moe/v4/recommendations/manga'
-
 export const CURRENT_SEASON_URL = 'https://api.jikan.moe/v4/seasons/now'
 export const TOP_CHARACTERS_URL = 'https://api.jikan.moe/v4/top/characters'
 
