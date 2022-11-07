@@ -22,3 +22,24 @@ export const HamburgerMenu = styled.button`
 export const Wrapper = styled.div`
   position: relative;
 `
+
+export const Menu = styled.div`
+  width: 100vw;
+  position: absolute;
+  top: 5 0px;
+  right: -30px;
+  background-color: ${theme.DrakGrey};
+
+  a {
+    padding: 15px 30px;
+
+    display: block;
+    font-weight: 600;
+    text-decoration: none;
+
+    :not(:last-child) {
+      color: ${theme.White};
+      border-bottom: 1px solid ${theme.HoverDarkGrey};
+    }
+  }
+`

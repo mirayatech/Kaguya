@@ -24,6 +24,7 @@ import { BsDot } from 'react-icons/bs'
 import {
   Buttons,
   Characters,
+  Footer,
   MobileButtons,
   SideBar,
   Trailer,
@@ -240,6 +241,7 @@ export default function Anime() {
       ) : (
         ''
       )}
+      <Footer />
     </>
   )
 }
