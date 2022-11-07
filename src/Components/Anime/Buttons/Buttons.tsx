@@ -1,6 +1,8 @@
-import { arrayUnion, doc, updateDoc } from 'firebase/firestore'
+import { arrayUnion, doc, setDoc, updateDoc } from 'firebase/firestore'
 import toast from 'react-hot-toast'
 import { FaBookmark } from 'react-icons/fa'
+import { v4 } from 'uuid'
+
 import { ImStarFull } from 'react-icons/im'
 import {
   useAuthContext,
@@ -19,18 +21,20 @@ export function Buttons({ anime }: ButtonsProps) {
 
   const { user } = useAuthContext()
 
-  const animeId = doc(firebaseDb, `users/${user?.uid}`)
+  const uuid = v4()
 
   const addAnimeToBookmark = async () => {
     if (user?.email) {
-      await updateDoc(animeId, {
-        bookmark: arrayUnion({
-          id: anime.mal_id,
-          title: anime.title,
-          poster: anime.images.jpg.large_image_url,
-        }),
-      })
+      const bookmarksCollectionReference = doc(
+        firebaseDb,
+        `users/${user?.uid}/bookmarks/${uuid} `
+      )
 
+      await setDoc(bookmarksCollectionReference, {
+        id: anime.mal_id,
+        title: anime.title,
+        poster: anime.images.jpg.large_image_url,
+      })
       toast('Added to bookmarks.', {
         icon: '👻',
         style: {
@@ -46,12 +50,15 @@ export function Buttons({ anime }: ButtonsProps) {
 
   const addAnimeToFavorite = async () => {
     if (user?.email) {
-      await updateDoc(animeId, {
-        favorites: arrayUnion({
-          id: anime.mal_id,
-          title: anime.title,
-          poster: anime.images.jpg.large_image_url,
-        }),
+      const favoritesCollectionReference = doc(
+        firebaseDb,
+        `users/${user?.uid}/favorites/${uuid} `
+      )
+
+      await setDoc(favoritesCollectionReference, {
+        id: anime.mal_id,
+        title: anime.title,
+        poster: anime.images.jpg.large_image_url,
       })
       toast('Added to favorites.', {
         icon: '⭐',
