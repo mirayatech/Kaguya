@@ -1,4 +1,4 @@
-import { arrayUnion, doc, setDoc, updateDoc } from 'firebase/firestore'
+import { doc, setDoc } from 'firebase/firestore'
 import toast from 'react-hot-toast'
 import { FaBookmark } from 'react-icons/fa'
 import { v4 } from 'uuid'
