@@ -17,6 +17,8 @@ export function App() {
   const Bookmark = lazy(() => import('./pages/Bookmarks/'))
   const Anime = lazy(() => import('./pages/Anime/'))
 
+  const Search = lazy(() => import('./pages/Search/'))
+
   return (
     <AuthContextProvider>
       <BookmarkContextProvider>
@@ -81,6 +83,15 @@ export function App() {
               element={
                 <Suspense fallback={<SuspenseSpinner />}>
                   <Anime />
+                </Suspense>
+              }
+            />
+
+            <Route
+              path="/search"
+              element={
+                <Suspense fallback={<SuspenseSpinner />}>
+                  <Search />
                 </Suspense>
               }
             />
