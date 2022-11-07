@@ -35,6 +35,7 @@ export function Menu() {
   const handleLogOut = () => {
     setStatus('loading')
     signOut(firebaseAuth)
+    setIsOpen(false)
     navigate('/')
     toast('You have successfully signed out.', {
       icon: '🤟',
@@ -79,13 +80,25 @@ export function Menu() {
               {isOpen && (
                 <ClickAwayListener onClickAway={() => setIsOpen(false)}>
                   <HamburgerMenu>
-                    <Link className="auth-link top" to="/">
+                    <Link
+                      onClick={handleClose}
+                      className="auth-link top"
+                      to="/"
+                    >
                       Anime
                     </Link>
-                    <Link className="auth-link" to="/favorites">
+                    <Link
+                      onClick={handleClose}
+                      className="auth-link"
+                      to="/favorites"
+                    >
                       Favorite
                     </Link>
-                    <Link className="auth-link" to="/bookmarks">
+                    <Link
+                      onClick={handleClose}
+                      className="auth-link"
+                      to="/bookmarks"
+                    >
                       Bookmark
                     </Link>
                     <LogOut onClick={handleLogOut}>Sign out</LogOut>
