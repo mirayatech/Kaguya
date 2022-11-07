@@ -1,11 +1,3 @@
-export type UserType = {
-  avatarUrl: string
-  bookmark: []
-  email: string
-  favorites: []
-  name: string
-}
-
 export type AnimeType = {
   duration: string
   episodes: number
@@ -68,4 +60,26 @@ export type CharacterType = {
   }
 
   role: string
+}
+
+export type UserType = {
+  id: string
+  name: string
+  email: string
+  avatarUrl: string
+
+  bookmark: [
+    {
+      id: number
+      poster: string
+      title: string
+    }
+  ]
+  favorites: [
+    {
+      id: number
+      poster: string
+      title: string
+    }
+  ]
 }
