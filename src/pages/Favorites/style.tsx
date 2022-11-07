@@ -116,7 +116,6 @@ export const Poster = styled.div`
   display: flex;
   flex-shrink: 0;
   margin: 0 10px;
-  cursor: pointer;
   position: relative;
   flex-direction: column;
   transition: all 0.3s ease;
