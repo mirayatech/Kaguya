@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
 `
 
 export const LogOut = styled.button`
+  cursor: pointer;
   width: 100%;
   border: none;
   font-size: 1rem;
@@ -28,9 +29,8 @@ export const LogOut = styled.button`
   color: ${theme.Primary};
   transition: all 0.2s ease;
   background-color: transparent;
-
   :hover {
-    background-color: rgb(230, 229, 229);
+    background-color: ${theme.MediumGrey};
   }
 `
 
@@ -49,6 +49,12 @@ export const HamburgerMenu = styled.div`
   top: 5 0px;
   right: -30px;
   background-color: ${theme.DrakGrey};
+  @media screen and (min-width: 749px) {
+    width: 150px;
+    border-radius: 4px;
+    top: 60px;
+    right: 0;
+  }
 
   a {
     color: ${theme.White};
@@ -57,9 +63,15 @@ export const HamburgerMenu = styled.div`
     display: block;
     font-weight: 600;
     text-decoration: none;
+    :hover {
+      background-color: ${theme.MediumGrey};
+    }
 
     :not(:last-child) {
       border-bottom: 1px solid ${theme.HoverDarkGrey};
+      @media screen and (min-width: 749px) {
+        display: none;
+      }
     }
   }
 `

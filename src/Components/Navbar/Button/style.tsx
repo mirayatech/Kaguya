@@ -40,7 +40,10 @@ export const Menu = styled.div`
     display: block;
     font-weight: 600;
     text-decoration: none;
-
+    transition: all 0.3s ease;
+    :hover {
+      background-color: ${theme.MediumGrey};
+    }
     :not(:last-child) {
       color: ${theme.White};
       border-bottom: 1px solid ${theme.HoverDarkGrey};
