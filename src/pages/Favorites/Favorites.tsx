@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../context'
 import { firebaseDb, UserType } from '../../library'
+import { FavoriteAnimes, Animes, Poster, TitleWrapper } from './style'
 
 export function Favorites() {
   const [isUser, setIsUser] = useState<UserType | null>(null)
@@ -28,20 +29,26 @@ export function Favorites() {
   return (
     <>
       {isUser && (
-        <div>
-          <h1> {isUser.name}'s favorite animes</h1>
+        <FavoriteAnimes>
+          <TitleWrapper>
+            <h1> {isUser.name}'s favorite animes</h1>
 
-          <div>
+            <h2>Total: {isUser.favorites.length}</h2>
+          </TitleWrapper>
+
+          <Animes>
             {isUser.favorites.map((favorite) => (
               <Link to={`/animes/${favorite.id}`}>
                 <div key={favorite.id}>
-                  <img src={favorite.poster} alt="" />
-                  <h2>{favorite.title}</h2>
+                  <Poster>
+                    <img src={favorite.poster} alt="" />
+                  </Poster>
+                  <h3>{favorite.title}</h3>
                 </div>
               </Link>
             ))}
-          </div>
-        </div>
+          </Animes>
+        </FavoriteAnimes>
       )}
     </>
   )
