@@ -24,11 +24,15 @@ export const Wrapper = styled.div`
 `
 
 export const Menu = styled.div`
-  width: 100vw;
-  position: absolute;
   top: 5 0px;
   right: -30px;
+  width: 100vw;
+  position: absolute;
+
   background-color: ${theme.DrakGrey};
+  @media screen and (min-width: 749px) {
+    display: none;
+  }
 
   a {
     padding: 15px 30px;

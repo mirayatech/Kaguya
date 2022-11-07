@@ -47,10 +47,11 @@ export const InfoText = styled.h1`
 // Authenticated
 
 export const FavoriteAnimes = styled.div`
+  margin: auto;
   display: flex;
   padding: 15px;
   max-width: 2200px;
-  margin: auto;
+  justify-content: center;
   flex-direction: column;
 
   h1 {
@@ -66,10 +67,10 @@ export const FavoriteAnimes = styled.div`
 
 export const TitleWrapper = styled.div`
   display: flex;
-  align-items: center;
   padding: 30px 15px;
-  justify-content: space-between;
   padding-top: 100px;
+  align-items: center;
+  justify-content: space-between;
 `
 
 export const Animes = styled.div`
