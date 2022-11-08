@@ -4,6 +4,8 @@ import { AnimeType, useStore } from '../../library'
 import { Animes, FavoriteAnimes, InputWrapper, NotFound, Poster } from './style'
 import ERROR from '../../assets/question.png'
 
+import { DebounceInput } from 'react-debounce-input'
+
 export default function Search() {
   const [searchInputField, setSearchInputField] = useState('Naruto')
   const [animeData, setAnimeData] = useState<AnimeType[]>([])
@@ -25,8 +27,10 @@ export default function Search() {
   return (
     <FavoriteAnimes>
       <InputWrapper>
-        <input
+        <DebounceInput
           type="searchInputField"
+          minLength={2}
+          debounceTimeout={300}
           placeholder="Search your anime"
           onChange={(event) => setSearchInputField(event.target.value)}
         />
