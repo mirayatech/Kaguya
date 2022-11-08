@@ -17,9 +17,12 @@ Kaguya provides you with anime and related resources using [Jikan](https://jikan
 
 <details>
 <summary><h3> 🎥 - Demo Video </h3></summary>
-<video src="" controls="controls" style="max-width: 730px;">
+<video src="https://user-images.githubusercontent.com/71933266/200503346-51e23a70-79ec-4b0a-98ac-3822348d3d1e.mp4" controls="controls" style="max-width: 730px;">
 </video>
 </details>
+
+
+
 
 <details>
 <summary><h3> 📸 - Demo Images </h3></summary>
