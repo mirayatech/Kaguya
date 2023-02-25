@@ -10,6 +10,8 @@ Kaguya provides you with anime and related resources using [Jikan](https://jikan
 - Watch anime trailer
 - Interaction requires authentication
  
+ 
+ 
 
 ### 🛠️ - Main technologies 
 `React` &nbsp;`Firebase` &nbsp;`TypeScript` &nbsp;`Vite` 
